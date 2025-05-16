@@ -3,55 +3,29 @@ import React from 'react';
 import { Terminal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-// Flatten all skills from the original categories into a single array
+// Reduced set of most important skills
 const allSkills = [
   // Languages
   { name: "Python", level: 90 },
   { name: "JavaScript", level: 80 },
   { name: "TypeScript", level: 75 },
   { name: "SQL", level: 85 },
-  { name: "C++", level: 65 },
-  { name: "Julia", level: 50 },
   
   // AI & ML
   { name: "PyTorch", level: 95 },
   { name: "TensorFlow", level: 80 },
   { name: "Hugging Face", level: 90 },
-  { name: "Scikit-learn", level: 85 },
   { name: "LangChain", level: 85 },
-  { name: "NLTK", level: 70 },
-  { name: "spaCy", level: 75 },
-  { name: "OpenCV", level: 80 },
-  { name: "YOLO", level: 75 },
-  { name: "Stable Diffusion", level: 70 },
   
   // Data & Cloud
   { name: "Pandas", level: 95 },
-  { name: "NumPy", level: 90 },
   { name: "AWS", level: 80 },
-  { name: "GCP", level: 75 },
-  { name: "Azure ML", level: 70 },
   { name: "Docker", level: 85 },
-  { name: "Kubernetes", level: 70 },
-  { name: "DVC", level: 75 },
   
   // Web & API
   { name: "FastAPI", level: 90 },
-  { name: "Flask", level: 85 },
   { name: "React", level: 80 },
-  { name: "Node.js", level: 75 },
-  { name: "GraphQL", level: 70 },
-  { name: "REST", level: 90 },
-  { name: "Streamlit", level: 95 },
-  
-  // DevOps & Tools
-  { name: "Git", level: 95 },
-  { name: "CI/CD", level: 85 },
-  { name: "MLflow", level: 90 },
-  { name: "Weights & Biases", level: 85 },
-  { name: "Prometheus", level: 75 },
-  { name: "Airflow", level: 80 },
-  { name: "Ray", level: 75 }
+  { name: "Streamlit", level: 95 }
 ];
 
 const SkillsSection = () => {
