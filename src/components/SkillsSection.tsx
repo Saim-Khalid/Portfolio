@@ -56,8 +56,57 @@ const allSkills = [
 
 const SkillsSection = () => {
   return (
-    <section id="skills" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section id="skills" className="py-20 relative overflow-hidden">
+      {/* Neural network background */}
+      <div className="absolute inset-0 z-0">
+        {/* Neural network nodes */}
+        {Array.from({ length: 8 }).map((_, i) => (
+          <div 
+            key={`node-${i}`}
+            className="absolute rounded-full bg-primary/10"
+            style={{
+              width: `${Math.random() * 12 + 4}px`,
+              height: `${Math.random() * 12 + 4}px`,
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+            }}
+          />
+        ))}
+        
+        {/* Neural network connections */}
+        {Array.from({ length: 10 }).map((_, i) => (
+          <div 
+            key={`connection-${i}`}
+            className="absolute bg-primary/5"
+            style={{
+              height: '1px',
+              width: `${Math.random() * 200 + 100}px`,
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              transform: `rotate(${Math.random() * 360}deg)`,
+            }}
+          />
+        ))}
+
+        {/* Larger nodes at intersections */}
+        {Array.from({ length: 5 }).map((_, i) => (
+          <div 
+            key={`large-node-${i}`}
+            className="absolute rounded-full bg-primary/15"
+            style={{
+              width: `${Math.random() * 20 + 8}px`,
+              height: `${Math.random() * 20 + 8}px`,
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+            }}
+          />
+        ))}
+
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <h2 className="section-heading mb-12 animate-fade-in">
           <Terminal size={24} className="text-primary" />
           Skills & Technologies
