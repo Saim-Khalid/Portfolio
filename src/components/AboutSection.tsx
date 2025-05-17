@@ -27,15 +27,15 @@ const AboutSection = () => {
           
           <div className="md:col-span-2 space-y-4">
             <p className="text-lg">
-              I'm a passionate <span className="font-semibold text-primary">AI Engineer</span> with over 5 years of experience building and deploying machine learning systems that solve real-world problems. My journey in AI began during my graduate studies in Computer Science, where I became fascinated by the potential of neural networks to understand language and vision.
+              I'm a passionate <span className="font-semibold text-primary">AI Engineer</span> with 5+ years of experience building machine learning systems that solve real-world problems.
             </p>
             
             <p>
-              My expertise lies at the intersection of <span className="font-semibold">Natural Language Processing</span>, <span className="font-semibold">Computer Vision</span>, and <span className="font-semibold">Large Language Models</span>. I've worked across various industries, from healthcare to finance, helping organizations harness the power of AI to enhance their products and services.
+              My expertise spans <span className="font-semibold">Natural Language Processing</span>, <span className="font-semibold">Computer Vision</span>, and <span className="font-semibold">Large Language Models</span>. I've worked across healthcare, finance, and technology sectors.
             </p>
             
             <p>
-              What drives me is not just building technically impressive systems, but creating AI solutions that are responsible, ethical, and human-centered. I believe the most valuable AI technologies are those that augment human capabilities rather than replace them.
+              I believe in creating AI solutions that are responsible, ethical, and human-centered - augmenting human capabilities rather than replacing them.
             </p>
             
             <div className="pt-4">
