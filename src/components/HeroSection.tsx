@@ -29,16 +29,17 @@ const HeroSection = () => {
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Hi, I'm <span className="text-primary">Alex Chen</span>
+            Hi, I'm <span className="text-primary">Saim Khalid</span>
           </h1>
 
           <h2 className="text-xl md:text-2xl font-medium mb-8">
             Specializing in <span className="font-semibold">NLP</span>, <span className="font-semibold">Computer Vision</span>, and <span className="font-semibold">LLMs</span>
           </h2>
 
-          <div className="mb-10 font-mono py-2 px-4 bg-code rounded-lg inline-block text-white">
-            <span className="opacity-70">&gt;</span> Building the future with machine intelligence
-            <span className="ml-1 inline-block w-2 h-5 bg-primary animate-cursor-blink"></span>
+          <div className="mb-10 font-mono py-2 px-4 bg-code rounded-lg inline-flex items-center text-white">
+            <span className="opacity-70 mr-1">&gt;</span> 
+            <span>Building the future with machine intelligence</span>
+            <span className="inline-block w-2 h-5 bg-primary animate-cursor-blink ml-0.5"></span>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
