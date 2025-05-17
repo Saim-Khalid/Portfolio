@@ -26,15 +26,15 @@ const AboutSection = () => {
           </div>
           
           <div className="md:col-span-2 space-y-4">
-            <p className="text-lg">
+            <p className="text-base">
               I'm a passionate <span className="font-semibold text-primary">AI Engineer</span> with 5+ years of experience building machine learning systems that solve real-world problems.
             </p>
             
-            <p>
+            <p className="text-base">
               My expertise spans <span className="font-semibold">Natural Language Processing</span>, <span className="font-semibold">Computer Vision</span>, and <span className="font-semibold">Large Language Models</span>. I've worked across healthcare, finance, and technology sectors.
             </p>
             
-            <p>
+            <p className="text-base">
               I believe in creating AI solutions that are responsible, ethical, and human-centered - augmenting human capabilities rather than replacing them.
             </p>
             
