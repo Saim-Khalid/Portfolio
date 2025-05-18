@@ -91,16 +91,13 @@ const Header = () => {
                 e.preventDefault();
                 scrollToSection(link.href.substring(1));
               }}
-              className={`font-mono text-sm transition-colors relative ${
+              className={`font-mono text-sm px-3 py-1.5 transition-colors rounded-md relative ${
                 activeSection === link.href.substring(1) 
-                  ? 'text-primary font-semibold' 
-                  : 'hover:text-primary/80'
+                  ? 'text-primary font-semibold bg-primary/10 backdrop-blur-sm' 
+                  : 'hover:bg-background/50 hover:backdrop-blur-sm hover:text-primary/80'
               }`}
             >
               {link.name}
-              {activeSection === link.href.substring(1) && (
-                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span>
-              )}
             </a>
           ))}
           
@@ -171,3 +168,4 @@ const Header = () => {
 };
 
 export default Header;
+
