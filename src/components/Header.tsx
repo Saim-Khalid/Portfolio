@@ -67,14 +67,22 @@ const Header = () => {
   };
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 px-4 lg:px-8 transition-all duration-300 ${scrolled ? 'bg-background/90 backdrop-blur-md py-2 shadow-sm' : 'py-4'}`}>
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <a href="#" className="font-mono text-lg font-bold">
-          <span className="text-primary">ai</span>Engineer<span className="text-primary">.</span>
-        </a>
+    <header 
+      className={`fixed z-50 transition-all duration-300 ${
+        scrolled 
+          ? 'left-1/2 -translate-x-1/2 top-4 max-w-3xl w-[95%] bg-background/90 backdrop-blur-md py-2 rounded-full shadow-md' 
+          : 'top-0 left-0 w-full px-4 lg:px-8 py-4'
+      }`}
+    >
+      <div className={`${scrolled ? 'px-6' : 'max-w-7xl mx-auto'} flex items-center justify-between`}>
+        {!scrolled && (
+          <a href="#" className="font-mono text-lg font-bold">
+            <span className="text-primary">ai</span>Engineer<span className="text-primary">.</span>
+          </a>
+        )}
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className={`hidden md:flex items-center ${scrolled ? 'justify-center w-full space-x-8' : 'space-x-6'}`}>
           {navLinks.map((link) => (
             <a 
               key={link.name} 
@@ -108,28 +116,35 @@ const Header = () => {
         </nav>
 
         {/* Mobile Menu Button */}
-        <div className="flex items-center md:hidden">
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            onClick={toggleDarkMode}
-            className="mr-1"
-          >
-            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-          </Button>
-          <Button 
-            variant="ghost" 
-            size="icon"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </Button>
+        <div className={`flex items-center md:hidden ${scrolled ? 'w-full justify-between' : ''}`}>
+          {scrolled && (
+            <a href="#" className="font-mono text-lg font-bold">
+              <span className="text-primary">ai</span>E<span className="text-primary">.</span>
+            </a>
+          )}
+          <div className="flex items-center">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={toggleDarkMode}
+              className="mr-1"
+            >
+              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </Button>
+            <Button 
+              variant="ghost" 
+              size="icon"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </Button>
+          </div>
         </div>
       </div>
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <nav className="md:hidden bg-background/95 backdrop-blur-lg absolute top-full left-0 w-full border-t border-border animate-fade-in">
+        <nav className="md:hidden bg-background/95 backdrop-blur-lg absolute top-full left-0 w-full border-t border-border animate-fade-in rounded-b-lg shadow-md mt-2">
           <div className="px-4 py-3 space-y-1">
             {navLinks.map((link) => (
               <a 
