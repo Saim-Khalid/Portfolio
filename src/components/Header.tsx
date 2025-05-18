@@ -70,8 +70,8 @@ const Header = () => {
     <header 
       className={`fixed z-50 transition-all duration-300 ${
         scrolled 
-          ? 'left-1/2 -translate-x-1/2 top-4 max-w-3xl w-[95%] bg-background/90 backdrop-blur-md py-2 rounded-full shadow-md' 
-          : 'top-0 left-0 w-full px-4 lg:px-8 py-4'
+          ? 'left-1/2 -translate-x-1/2 top-4 max-w-3xl w-[95%] bg-background/60 backdrop-blur-xl py-2 rounded-full shadow-lg border border-border/30' 
+          : 'top-0 left-0 w-full px-4 lg:px-8 py-4 bg-background/40 backdrop-blur-md'
       }`}
     >
       <div className={`${scrolled ? 'px-6' : 'max-w-7xl mx-auto'} flex items-center justify-between`}>
@@ -144,7 +144,7 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <nav className="md:hidden bg-background/95 backdrop-blur-lg absolute top-full left-0 w-full border-t border-border animate-fade-in rounded-b-lg shadow-md mt-2">
+        <nav className="md:hidden bg-background/70 backdrop-blur-xl absolute top-full left-0 w-full border-t border-border/30 animate-fade-in rounded-b-lg shadow-md mt-2">
           <div className="px-4 py-3 space-y-1">
             {navLinks.map((link) => (
               <a 
