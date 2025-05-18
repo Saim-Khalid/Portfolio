@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -91,10 +90,10 @@ const Header = () => {
                 e.preventDefault();
                 scrollToSection(link.href.substring(1));
               }}
-              className={`font-mono text-sm px-3 py-1.5 transition-colors rounded-md relative ${
+              className={`font-mono text-sm transition-colors rounded-full ${
                 activeSection === link.href.substring(1) 
-                  ? 'text-primary font-semibold bg-primary/10 backdrop-blur-sm' 
-                  : 'hover:bg-background/50 hover:backdrop-blur-sm hover:text-primary/80'
+                  ? 'text-primary font-semibold bg-primary/10 backdrop-blur-sm px-4 py-2' 
+                  : 'hover:bg-background/50 hover:backdrop-blur-sm hover:text-primary/80 px-3 py-1.5'
               }`}
             >
               {link.name}
@@ -151,7 +150,7 @@ const Header = () => {
                   e.preventDefault();
                   scrollToSection(link.href.substring(1));
                 }}
-                className={`block font-mono text-base py-2 px-2 rounded-md transition-colors ${
+                className={`block font-mono text-base py-2 px-4 rounded-full transition-colors ${
                   activeSection === link.href.substring(1) 
                     ? 'bg-primary/10 text-primary font-semibold' 
                     : 'hover:bg-muted'
@@ -168,4 +167,3 @@ const Header = () => {
 };
 
 export default Header;
-
