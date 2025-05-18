@@ -7,6 +7,7 @@ const Header = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     // Initialize theme based on system preference
@@ -17,9 +18,27 @@ const Header = () => {
     // Track scroll for header styling
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
+      
+      // Determine active section based on scroll position
+      const sections = document.querySelectorAll('section[id]');
+      const scrollPosition = window.scrollY + 100; // offset for header height
+      
+      sections.forEach((section) => {
+        const sectionTop = (section as HTMLElement).offsetTop;
+        const sectionHeight = (section as HTMLElement).offsetHeight;
+        const sectionId = section.getAttribute('id') || '';
+        
+        if (
+          scrollPosition >= sectionTop &&
+          scrollPosition < sectionTop + sectionHeight
+        ) {
+          setActiveSection(sectionId);
+        }
+      });
     };
     
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Call once on mount to set initial state
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -37,22 +56,43 @@ const Header = () => {
     { name: "Contact", href: "#contact" },
   ];
 
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const yOffset = -70; // header height offset
+      const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+      setMobileMenuOpen(false);
+    }
+  };
+
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 px-4 lg:px-8 transition-all duration-300 ${scrolled ? 'bg-background/80 backdrop-blur-md py-2 shadow-sm' : 'py-4'}`}>
+    <header className={`fixed top-0 left-0 w-full z-50 px-4 lg:px-8 transition-all duration-300 ${scrolled ? 'bg-background/90 backdrop-blur-md py-2 shadow-sm' : 'py-4'}`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <a href="#" className="font-mono text-lg font-bold">
           <span className="text-primary">ai</span>Engineer<span className="text-primary">.</span>
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-6">
           {navLinks.map((link) => (
             <a 
               key={link.name} 
               href={link.href}
-              className="font-mono text-sm hover:text-primary transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(link.href.substring(1));
+              }}
+              className={`font-mono text-sm transition-colors relative ${
+                activeSection === link.href.substring(1) 
+                  ? 'text-primary font-semibold' 
+                  : 'hover:text-primary/80'
+              }`}
             >
               {link.name}
+              {activeSection === link.href.substring(1) && (
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span>
+              )}
             </a>
           ))}
           
@@ -90,13 +130,20 @@ const Header = () => {
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
         <nav className="md:hidden bg-background/95 backdrop-blur-lg absolute top-full left-0 w-full border-t border-border animate-fade-in">
-          <div className="px-4 py-3 space-y-3">
+          <div className="px-4 py-3 space-y-1">
             {navLinks.map((link) => (
               <a 
                 key={link.name} 
                 href={link.href}
-                className="block font-mono text-lg py-2 hover:text-primary transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(link.href.substring(1));
+                }}
+                className={`block font-mono text-base py-2 px-2 rounded-md transition-colors ${
+                  activeSection === link.href.substring(1) 
+                    ? 'bg-primary/10 text-primary font-semibold' 
+                    : 'hover:bg-muted'
+                }`}
               >
                 {link.name}
               </a>
