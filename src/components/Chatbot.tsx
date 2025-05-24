@@ -13,6 +13,17 @@ declare global {
   }
 }
 
+interface SpeechRecognition extends EventTarget {
+  continuous: boolean;
+  interimResults: boolean;
+  lang: string;
+  start(): void;
+  stop(): void;
+  onresult: ((event: SpeechRecognitionEvent) => void) | null;
+  onerror: ((event: Event) => void) | null;
+  onend: (() => void) | null;
+}
+
 interface SpeechRecognitionEvent extends Event {
   results: SpeechRecognitionResultList;
 }
@@ -32,6 +43,16 @@ interface SpeechRecognitionAlternative {
   confidence: number;
 }
 
+declare var SpeechRecognition: {
+  prototype: SpeechRecognition;
+  new(): SpeechRecognition;
+};
+
+declare var webkitSpeechRecognition: {
+  prototype: SpeechRecognition;
+  new(): SpeechRecognition;
+};
+
 interface Message {
   id: string;
   text: string;
@@ -44,7 +65,7 @@ const Chatbot = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Hi! I'm Alex's AI assistant. I can help answer questions about my experience, skills, and projects. What would you like to know?",
+      text: "Hi! I'm Saim's AI assistant. I can help answer questions about my experience, skills, and projects. What would you like to know?",
       isUser: false,
       timestamp: new Date()
     }
@@ -67,8 +88,8 @@ const Chatbot = () => {
   // Initialize speech recognition
   useEffect(() => {
     if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      recognitionRef.current = new SpeechRecognition();
+      const SpeechRecognitionConstructor = window.SpeechRecognition || window.webkitSpeechRecognition;
+      recognitionRef.current = new SpeechRecognitionConstructor();
       recognitionRef.current.continuous = false;
       recognitionRef.current.interimResults = false;
       recognitionRef.current.lang = 'en-US';
@@ -105,7 +126,6 @@ const Chatbot = () => {
 
   const speakText = (text: string) => {
     if (isVoiceEnabled && 'speechSynthesis' in window) {
-      // Cancel any ongoing speech
       window.speechSynthesis.cancel();
       
       const utterance = new SpeechSynthesisUtterance(text);
@@ -120,7 +140,6 @@ const Chatbot = () => {
   const toggleVoice = () => {
     setIsVoiceEnabled(!isVoiceEnabled);
     if (!isVoiceEnabled) {
-      // If enabling voice, stop any ongoing speech
       window.speechSynthesis.cancel();
     }
   };
@@ -145,14 +164,14 @@ const Chatbot = () => {
     }
     
     if (lowerMessage.includes('contact') || lowerMessage.includes('hire') || lowerMessage.includes('work together')) {
-      return "I'd love to discuss potential opportunities! You can reach me at alex.chen.ai@email.com or connect with me on LinkedIn. I'm always open to interesting AI/ML projects and collaborations.";
+      return "I'd love to discuss potential opportunities! You can reach me at saim.khalid.ai@email.com or connect with me on LinkedIn. I'm always open to interesting AI/ML projects and collaborations.";
     }
     
     if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
-      return "Hello! Great to meet you. I'm here to help you learn more about Alex's background and expertise in AI/ML. What specific area would you like to know about?";
+      return "Hello! Great to meet you. I'm here to help you learn more about Saim's background and expertise in AI/ML. What specific area would you like to know about?";
     }
     
-    return "That's an interesting question! I'd be happy to discuss Alex's background in AI/ML engineering, his projects, skills, or experience. What specific aspect would you like to know more about?";
+    return "That's an interesting question! I'd be happy to discuss Saim's background in AI/ML engineering, his projects, skills, or experience. What specific aspect would you like to know more about?";
   };
 
   const handleSendMessage = async () => {
@@ -169,7 +188,6 @@ const Chatbot = () => {
     setInputValue('');
     setIsTyping(true);
 
-    // Simulate typing delay
     setTimeout(() => {
       const responseText = generateResponse(inputValue);
       const botResponse: Message = {
@@ -182,7 +200,6 @@ const Chatbot = () => {
       setMessages(prev => [...prev, botResponse]);
       setIsTyping(false);
       
-      // Speak the response if voice is enabled
       speakText(responseText);
     }, 1500);
   };
@@ -207,9 +224,9 @@ const Chatbot = () => {
         <MessageCircle className="h-6 w-6" />
       </Button>
 
-      {/* Chat Interface */}
+      {/* Chat Interface - Responsive sizing */}
       {isOpen && (
-        <Card className="fixed bottom-6 right-6 w-80 h-96 shadow-xl z-50 flex flex-col">
+        <Card className="fixed bottom-6 right-6 w-80 sm:w-80 md:w-96 h-96 shadow-xl z-50 flex flex-col max-w-[calc(100vw-3rem)]">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-lg flex items-center gap-2">
               <Bot className="h-5 w-5 text-primary" />
