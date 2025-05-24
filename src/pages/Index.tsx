@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
@@ -10,6 +11,7 @@ import PublicationsSection from '@/components/PublicationsSection';
 import BlogSection from '@/components/BlogSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import Chatbot from '@/components/Chatbot';
 
 const Index = () => {
   useEffect(() => {
@@ -44,6 +46,7 @@ const Index = () => {
       <BlogSection />
       <ContactSection />
       <Footer />
+      <Chatbot />
     </div>
   );
 };
