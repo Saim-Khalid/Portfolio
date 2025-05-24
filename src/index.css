@@ -81,6 +81,7 @@
   
   body {
     @apply bg-background text-foreground font-sans;
+    overflow-x: hidden;
   }
 
   /* CODE BLOCK STYLING */
@@ -178,6 +179,31 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* MOBILE RESPONSIVE FIXES */
+  @media (max-width: 640px) {
+    .container {
+      @apply px-2;
+    }
+    
+    .mesh-background {
+      background-size: cover;
+      background-attachment: scroll;
+    }
+    
+    /* Ensure text doesn't overflow on small screens */
+    h1, h2, h3, h4, h5, h6 {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+    
+    /* Terminal text responsive */
+    .terminal-text {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+  }
 }
 
 /* CUSTOM UTILITIES */
@@ -196,5 +222,13 @@
 
   .section-heading {
     @apply text-2xl font-bold mb-6 flex items-center gap-2 font-mono;
+  }
+
+  /* Mobile responsive utilities */
+  .break-words {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
   }
 }

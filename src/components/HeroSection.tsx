@@ -7,39 +7,39 @@ const HeroSection = () => {
   return (
     <section id="home" className="min-h-screen pt-20 flex items-center mesh-background">
       <div className="container mx-auto px-4 py-16 relative">
-        {/* Animated Floating Icons */}
-        <div className="absolute left-10 top-1/4 opacity-20 dark:opacity-10">
+        {/* Animated Floating Icons - Hidden on mobile */}
+        <div className="hidden md:block absolute left-10 top-1/4 opacity-20 dark:opacity-10">
           <Code size={48} className="animate-float float-delay-1" />
         </div>
-        <div className="absolute right-20 top-1/3 opacity-20 dark:opacity-10">
+        <div className="hidden md:block absolute right-20 top-1/3 opacity-20 dark:opacity-10">
           <Brain size={64} className="animate-float float-delay-2" />
         </div>
-        <div className="absolute left-1/4 bottom-1/4 opacity-20 dark:opacity-10">
+        <div className="hidden md:block absolute left-1/4 bottom-1/4 opacity-20 dark:opacity-10">
           <Network size={56} className="animate-float float-delay-3" />
         </div>
-        <div className="absolute right-1/4 bottom-1/3 opacity-20 dark:opacity-10">
+        <div className="hidden md:block absolute right-1/4 bottom-1/3 opacity-20 dark:opacity-10">
           <PenTool size={40} className="animate-float" />
         </div>
 
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-3xl mx-auto text-center px-4">
           <div className="mb-4 inline-block">
             <span className="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-mono">
               AI Engineer & ML Specialist
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             Hi, I'm <span className="text-primary">Saim Khalid</span>
           </h1>
 
-          <h2 className="text-xl md:text-2xl font-medium mb-8">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-medium mb-8 leading-relaxed">
             Specializing in <span className="font-semibold">NLP</span>, <span className="font-semibold">Computer Vision</span>, and <span className="font-semibold">LLMs</span>
           </h2>
 
-          <div className="mb-10 font-mono py-2 px-4 bg-code rounded-lg inline-flex items-center text-white">
-            <span className="opacity-70 mr-1">&gt;</span> 
-            <span>Building the future with machine intelligence</span>
-            <span className="inline-block w-2 h-5 bg-primary animate-[blink_1s_step-end_infinite] ml-0.5"></span>
+          <div className="mb-10 font-mono py-2 px-4 bg-code rounded-lg inline-flex items-center text-white text-sm sm:text-base break-words max-w-full">
+            <span className="opacity-70 mr-1 flex-shrink-0">&gt;</span> 
+            <span className="break-words">Building the future with machine intelligence</span>
+            <span className="inline-block w-2 h-5 bg-primary animate-[blink_1s_step-end_infinite] ml-0.5 flex-shrink-0"></span>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
