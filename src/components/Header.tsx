@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -71,11 +72,11 @@ const Header = () => {
     <header 
       className={`fixed z-50 transition-all duration-300 ${
         scrolled 
-          ? 'left-1/2 -translate-x-1/2 top-4 max-w-3xl w-[95%] bg-background/60 backdrop-blur-xl py-2 rounded-full shadow-lg border border-border/30' 
+          ? 'left-1/2 -translate-x-1/2 top-4 max-w-5xl w-[95%] bg-background/80 backdrop-blur-xl py-3 rounded-full shadow-lg border border-border/40' 
           : 'top-0 left-0 w-full px-4 lg:px-8 py-4 bg-background/40 backdrop-blur-md'
       }`}
     >
-      <div className={`${scrolled ? 'px-6' : 'max-w-7xl mx-auto'} flex items-center justify-between`}>
+      <div className={`${scrolled ? 'px-8' : 'max-w-7xl mx-auto'} flex items-center justify-between`}>
         {!scrolled && (
           <a href="#" className="font-mono text-lg font-bold">
             <span className="text-primary">ai</span>Engineer<span className="text-primary">.</span>
@@ -83,7 +84,7 @@ const Header = () => {
         )}
 
         {/* Desktop Navigation */}
-        <nav className={`hidden md:flex items-center ${scrolled ? 'justify-center w-full space-x-8' : 'space-x-6'}`}>
+        <nav className={`hidden md:flex items-center ${scrolled ? 'justify-center w-full space-x-6' : 'space-x-6'}`}>
           {navLinks.map((link) => (
             <a 
               key={link.name} 
@@ -92,10 +93,10 @@ const Header = () => {
                 e.preventDefault();
                 scrollToSection(link.href.substring(1));
               }}
-              className={`font-mono text-sm transition-colors rounded-full ${
+              className={`font-mono text-sm transition-all duration-200 rounded-full whitespace-nowrap ${
                 activeSection === link.href.substring(1) 
-                  ? 'text-primary font-semibold bg-primary/10 backdrop-blur-sm px-4 py-2' 
-                  : 'hover:bg-background/50 hover:backdrop-blur-sm hover:text-primary/80 px-3 py-1.5'
+                  ? 'text-primary font-semibold bg-primary/10 backdrop-blur-sm px-4 py-2 shadow-sm' 
+                  : 'hover:bg-background/60 hover:backdrop-blur-sm hover:text-primary/80 px-3 py-2'
               }`}
             >
               {link.name}
@@ -106,7 +107,7 @@ const Header = () => {
             variant="ghost" 
             size="icon" 
             onClick={toggleDarkMode}
-            className="ml-2"
+            className="ml-3 rounded-full"
           >
             {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             <span className="sr-only">Toggle theme</span>
@@ -125,7 +126,7 @@ const Header = () => {
               variant="ghost" 
               size="icon" 
               onClick={toggleDarkMode}
-              className="mr-1"
+              className="mr-1 rounded-full"
             >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </Button>
@@ -133,6 +134,7 @@ const Header = () => {
               variant="ghost" 
               size="icon"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="rounded-full"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </Button>
@@ -142,7 +144,7 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <nav className="md:hidden bg-background/70 backdrop-blur-xl absolute top-full left-0 w-full border-t border-border/30 animate-fade-in rounded-b-lg shadow-md mt-2">
+        <nav className="md:hidden bg-background/90 backdrop-blur-xl absolute top-full left-0 w-full border-t border-border/30 animate-fade-in rounded-b-lg shadow-md mt-2">
           <div className="px-4 py-3 space-y-1">
             {navLinks.map((link) => (
               <a 
@@ -152,7 +154,7 @@ const Header = () => {
                   e.preventDefault();
                   scrollToSection(link.href.substring(1));
                 }}
-                className={`block font-mono text-base py-2 px-4 rounded-full transition-colors ${
+                className={`block font-mono text-base py-3 px-4 rounded-full transition-colors ${
                   activeSection === link.href.substring(1) 
                     ? 'bg-primary/10 text-primary font-semibold' 
                     : 'hover:bg-muted'
