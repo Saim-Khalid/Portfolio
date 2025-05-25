@@ -19,7 +19,7 @@ const PublicationsSection = () => {
 
   return (
     <section id="publications" className="py-20 px-4 lg:px-8 bg-muted/30">
-      <div className="max-w-7xl mx-auto">
+      <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="section-heading">
             <BookOpen className="w-6 h-6 text-primary" />
