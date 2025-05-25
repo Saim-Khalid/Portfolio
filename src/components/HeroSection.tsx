@@ -33,7 +33,7 @@ const HeroSection = () => {
           </h1>
 
           <h2 className="text-lg sm:text-xl md:text-2xl font-medium mb-8 leading-relaxed">
-            Specializing in <span className="font-semibold">NLP</span>, <span className="font-semibold">Computer Vision</span>, and <span className="font-semibold">LLMs</span>
+            Specializing in <span className="font-semibold">Natural Language Processing</span>, <span className="font-semibold">Generative AI</span>, and <span className="font-semibold">Computer Vision</span>
           </h2>
 
           <div className="mb-10 font-mono py-2 px-4 bg-code rounded-lg inline-flex items-center text-white text-sm sm:text-base break-words max-w-full">

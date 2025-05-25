@@ -18,7 +18,11 @@ const AboutSection = () => {
                 <div className="bg-background rounded-lg h-full w-full overflow-hidden">
                   {/* Profile image placeholder */}
                   <div className="h-full w-full bg-muted/50 flex items-center justify-center">
-                    <span className="font-mono text-muted-foreground">profile.jpg</span>
+                    <img
+                      src="/public/profile.png"
+                      alt="Profile"
+                      className="h-full w-full object-cover rounded-lg"
+                    />                    
                   </div>
                 </div>
               </div>
@@ -27,11 +31,11 @@ const AboutSection = () => {
           
           <div className="md:col-span-2 space-y-4">
             <p className="text-base">
-              I'm a passionate <span className="font-semibold text-primary">AI Engineer</span> with 5+ years of experience building machine learning systems that solve real-world problems.
+              I'm a passionate <span className="font-semibold text-primary">AI Engineer</span> with 2+ years of experience building machine learning systems that solve real-world problems.
             </p>
             
             <p className="text-base">
-              My expertise spans <span className="font-semibold">Natural Language Processing</span>, <span className="font-semibold">Computer Vision</span>, and <span className="font-semibold">Large Language Models</span>. I've worked across healthcare, finance, and technology sectors.
+              My expertise spans <span className="font-semibold">Natural Language Processing</span>, <span className="font-semibold">Computer Vision</span>, and <span className="font-semibold">Generative AI</span>. I've worked across healthcare, IoT, and technology sectors.
             </p>
             
             <p className="text-base">
@@ -60,11 +64,11 @@ const AboutSection = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary"></span>
-                  MLOps & Deployment
+                  AI Autommation
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary"></span>
-                  Responsible AI
+                  Chatbots
                 </li>
               </ul>
             </div>

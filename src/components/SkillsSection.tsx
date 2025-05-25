@@ -7,25 +7,43 @@ import { Button } from '@/components/ui/button';
 const allSkills = [
   // Languages
   { name: "Python", level: 90 },
-  { name: "JavaScript", level: 80 },
-  { name: "TypeScript", level: 75 },
-  { name: "SQL", level: 85 },
+  { name: "MLOps", level: 80 },
+  { name: "Mlflow", level: 75 },
   
   // AI & ML
   { name: "PyTorch", level: 95 },
   { name: "TensorFlow", level: 80 },
   { name: "Hugging Face", level: 90 },
   { name: "LangChain", level: 85 },
+  { name: "OpenAI", level: 90 },
+  { name: "LLMs", level: 90 },
   
   // Data & Cloud
   { name: "Pandas", level: 95 },
   { name: "AWS", level: 80 },
   { name: "Docker", level: 85 },
+  { name: "Kubernetes", level: 75 },
+  { name: "GCP", level: 70 },
+  { name: "CI/CD", level: 80 },
+  { name: "SQL", level: 80 },
+  { name: "Dialogflow", level: 75 },
+  { name: "RASA", level: 90 },
   
   // Web & API
   { name: "FastAPI", level: 90 },
-  { name: "React", level: 80 },
-  { name: "Streamlit", level: 95 }
+  { name: "Django", level: 80 },
+  { name: "Streamlit", level: 95 },
+  { name: "Gradio", level: 85 },
+  
+  // Other Tools
+  { name: "OpenCV", level: 80 },
+  { name: "NumPy", level: 95 },
+  { name: "Matplotlib", level: 85 },
+  { name: "Git", level: 90 },
+  { name: "Linux", level: 80 },
+  { name: "CUDA", level: 75 }
+
+
 ];
 
 const SkillsSection = () => {

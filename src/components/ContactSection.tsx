@@ -24,7 +24,7 @@ const ContactSection = () => {
 
             <div className="space-y-6">
               <a 
-                href="mailto:alex@aiengineering.dev" 
+                href="aidevsaim@gmail.com" 
                 className="flex items-center gap-3 p-4 rounded-lg bg-card border hover:shadow-md transition-shadow"
               >
                 <div className="bg-primary/10 p-2 rounded-md text-primary">
@@ -32,12 +32,12 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="font-medium">Email</p>
-                  <p className="text-muted-foreground">alex@aiengineering.dev</p>
+                  <p className="text-muted-foreground">aidevsaim@gmail.com</p>
                 </div>
               </a>
 
               <a 
-                href="https://github.com/alexaidev" 
+                href="https://github.com/Saim-Khalid" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-4 rounded-lg bg-card border hover:shadow-md transition-shadow"
@@ -47,12 +47,12 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="font-medium">GitHub</p>
-                  <p className="text-muted-foreground">github.com/alexaidev</p>
+                  <p className="text-muted-foreground">github.com/Saim-Khalid</p>
                 </div>
               </a>
 
               <a 
-                href="https://linkedin.com/in/alexaidev" 
+                href="https://www.linkedin.com/in/saim-khalid-aa762a136" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-4 rounded-lg bg-card border hover:shadow-md transition-shadow"
@@ -62,12 +62,12 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="font-medium">LinkedIn</p>
-                  <p className="text-muted-foreground">linkedin.com/in/alexaidev</p>
+                  <p className="text-muted-foreground">linkedin.com/in/saimkhalid</p>
                 </div>
               </a>
 
               <a 
-                href="https://calendly.com/alexaidev" 
+                href="https://calendly.com/aidevsaim" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-4 rounded-lg bg-card border hover:shadow-md transition-shadow"
@@ -77,7 +77,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="font-medium">Schedule a Call</p>
-                  <p className="text-muted-foreground">calendly.com/alexaidev</p>
+                  <p className="text-muted-foreground">calendly.com/aidevsaim</p>
                 </div>
               </a>
             </div>
