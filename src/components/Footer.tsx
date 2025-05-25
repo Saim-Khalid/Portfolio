@@ -33,7 +33,7 @@ const Footer = () => {
             </button>
             
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Alex Chen. All rights reserved.
+              © {new Date().getFullYear()} Saim Khalid. All rights reserved.
             </p>
           </div>
         </div>

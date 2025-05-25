@@ -6,44 +6,14 @@ import { BookOpen, Calendar, ExternalLink, Users } from 'lucide-react';
 const PublicationsSection = () => {
   const publications = [
     {
-      title: "Scalable AI Systems: A Microservices Approach",
-      journal: "Journal of Software Architecture",
+      title: "Small Pests Detection in Field Crops Using Deep Learning Object Detection",
+      journal: "Sustainability (MDPI)",
       type: "Research Paper",
       date: "2023",
-      authors: ["John Doe", "Jane Smith", "Alex Johnson"],
-      abstract: "This paper presents a novel approach to building scalable AI systems using microservices architecture, demonstrating improved performance and maintainability.",
-      url: "#",
-      citations: 24
-    },
-    {
-      title: "Modern Frontend Development with React and TypeScript",
-      journal: "Tech Today Magazine",
-      type: "Article",
-      date: "2023",
-      authors: ["John Doe"],
-      abstract: "A comprehensive guide to building modern web applications with React and TypeScript, covering best practices and performance optimization techniques.",
-      url: "#",
-      citations: 12
-    },
-    {
-      title: "Machine Learning in Production: Lessons Learned",
-      journal: "AI Engineering Quarterly",
-      type: "Case Study",
-      date: "2022",
-      authors: ["John Doe", "Sarah Wilson"],
-      abstract: "An in-depth analysis of challenges and solutions encountered while deploying machine learning models in production environments.",
-      url: "#",
-      citations: 18
-    },
-    {
-      title: "Cloud-Native Development Patterns",
-      journal: "DevOps International",
-      type: "Research Paper",
-      date: "2022",
-      authors: ["John Doe", "Mike Chen", "Lisa Brown"],
-      abstract: "Exploring design patterns and best practices for developing cloud-native applications with a focus on scalability and resilience.",
-      url: "#",
-      citations: 31
+      authors: ["Saim Khalid", "Hadi Mohsen Oqaibi", "Muhammad Aqib", "Yaser Hafeez"],
+      abstract: "Deep learning algorithms, such as convolutional neural networks (CNNs), have been widely studied and applied in various fields including agriculture. Agriculture is the most important source of food and income in human life. In most countries, the backbone of the economy is based on agriculture. Pests are one of the major challenges in crop production worldwide. To reduce the overall production and economic loss from pests, advancement in computer vision and artificial intelligence may lead to early and small pest detection with greater accuracy and speed.",
+      url: "https://www.mdpi.com/2071-1050/15/8/6815#metrics",
+      citations: 54
     }
   ];
 

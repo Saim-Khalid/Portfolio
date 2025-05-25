@@ -6,36 +6,36 @@ import { Award, Calendar, ExternalLink } from 'lucide-react';
 const CertificationsSection = () => {
   const certifications = [
     {
-      title: "AWS Certified Solutions Architect",
-      issuer: "Amazon Web Services",
-      date: "2023",
-      credentialId: "AWS-CSA-2023-001",
-      description: "Professional-level certification demonstrating expertise in designing distributed systems on AWS.",
-      verifyUrl: "#"
-    },
-    {
-      title: "Google Cloud Professional Cloud Architect",
-      issuer: "Google Cloud",
-      date: "2023",
-      credentialId: "GCP-PCA-2023-002",
-      description: "Advanced certification in designing and managing cloud architecture solutions.",
-      verifyUrl: "#"
-    },
-    {
-      title: "Certified Kubernetes Administrator",
-      issuer: "Cloud Native Computing Foundation",
-      date: "2022",
-      credentialId: "CKA-2022-003",
-      description: "Hands-on certification for Kubernetes cluster administration and management.",
-      verifyUrl: "#"
-    },
-    {
-      title: "TensorFlow Developer Certificate",
-      issuer: "TensorFlow",
-      date: "2022",
+      title: "Generative AI with Large Language Models",
+      issuer: "AWS, Coursera, DeepLearning.AI",
+      date: "2024",
       credentialId: "TF-DEV-2022-004",
-      description: "Certification demonstrating proficiency in machine learning with TensorFlow.",
-      verifyUrl: "#"
+      description: "Gained hands-on experience in generative AI through AWS-led training focused on research and real-world applications.",
+      verifyUrl: "https://www.coursera.org/account/accomplishments/verify/P52CZRTBTAV3?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
+    },
+    {
+      title: "Introduction to on-device AI",
+      issuer: "DeepLearning.AI",
+      date: "2024",
+      credentialId: "GCP-PCA-2023-002",
+      description: "Deployed AI models on Edge devices and smartphones. Learned model coversion, quantization, and how to modify for deployment on diverse devices.",
+      verifyUrl: "https://learn.deeplearning.ai/accomplishments/bcaa8cae-ab1e-445b-92e8-ac7c5666e212?usp=sharing"
+    },
+    {
+      title: "Machine Learning Operations (MLOps): Getting Started",
+      issuer: "Google Cloud, Coursera",
+      date: "2023",
+      credentialId: "CKA-2022-003",
+      description: "Acquired skills in implementing effective MLOps using core technologies, CI/CD practices, and Google Cloud for reliable training and inference workflows.",
+      verifyUrl: "https://www.coursera.org/account/accomplishments/verify/JG337LUP7SAB?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
+    },
+    {
+      title: "Python for Data Science, AI & Development",
+      issuer: "IBM, Coursera",
+      date: "2021",
+      credentialId: "TF-DEV-2022-004",
+      description: "Mastered Python for data science, using core concepts, APIs, and libraries like Pandas, NumPy, and Beautiful Soup.",
+      verifyUrl: "https://www.coursera.org/account/accomplishments/verify/SZLXVR8YHB4R?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
     }
   ];
 

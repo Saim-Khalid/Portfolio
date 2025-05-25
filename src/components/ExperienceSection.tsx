@@ -13,35 +13,52 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    title: "Senior AI Engineer",
-    company: "TechNova AI",
-    period: "2022 - Present",
+    title: "AI Engineer",
+    company: "Self-Employed (UK Contractor)",
+    period: "Sep 2024 - Present",
     description: [
-      "Lead a team of 5 engineers building and deploying LLM-powered applications for enterprise clients",
-      "Designed and implemented a custom RAG system that improved answer relevance by 35% compared to vanilla approaches",
-      "Created an internal LLM evaluation framework that reduced time-to-production by 40%"
+      "Leading the development of AI solutions for healthcare and IoT sectors.",
+      "Developed a handwriting OCR pipeline using Qwen2 VLM, deployed via FastAPI & MLflow, with OpenAI-powered prompt engineering and NER for structured text extraction.",
+      "Vision Transformer for Heart Xray Image Classification using transfer learning.",
+
+    ],
+    technologies: ["PyTorch", "Hugging Face", "LangChain", "FastAPI", "AWS", "Docker"]
+  },
+  
+  {
+    title: "AI Engineer",
+    company: "iOPTIME Pvt. Limited.",
+    period: "Aug 2023 - Aug 2024",
+    description: [
+      "Lead a team of 5 engineers building and deploying Computer Vision and LLM-powered applications for enterprise clients",
+      "Fine-tuned GPT-3.5 Turbo with RAG and Langchain for product inquiries in e-commerce.",
+      "Implemented LLAMA 2/3 with RAG via Langchain for audit report analysis.",
+      "Built an OCR system for South African and Zimbabwean IDs and passports."
+
     ],
     technologies: ["PyTorch", "Hugging Face", "LangChain", "FastAPI", "AWS", "Docker"]
   },
   {
-    title: "ML Engineer",
-    company: "DataVision Inc.",
-    period: "2019 - 2022",
+    title: "Junior AI Engineer",
+    company: "iOPTIME Pvt. Limited",
+    period: "Feb 2023 - Jul 2023",
     description: [
-      "Developed computer vision models for retail analytics, achieving 94% accuracy in customer behavior analysis",
-      "Built an end-to-end MLOps pipeline that reduced model deployment time from weeks to hours",
-      "Collaborated with product teams to integrate AI features that increased user engagement by 28%"
+      "Vehicle Trajectory Analysis using DeepSORT and YOLO, deployed using FastAPI on AWS EC2.",
+      "Nails Segmentation for nail polish design deployed in Android and iOS.",
+      "Fine tuned and Deployed GPT for e-commerce product recommendation.",
+      "Causal Inference and Learning for Road Accident Analysis."
+
     ],
     technologies: ["TensorFlow", "OpenCV", "Python", "Kubernetes", "GCP", "CI/CD"]
   },
   {
-    title: "AI Research Intern",
-    company: "NLP Research Lab",
-    period: "2018 - 2019",
+    title: "AI Intern",
+    company: "iOPTIME Pvt. Limited",
+    period: "Nov 2022 - Jan 2023",
     description: [
-      "Contributed to research papers on transformer architectures for language understanding",
-      "Implemented novel attention mechanisms that improved GLUE benchmark scores by 2.3%",
-      "Built demo applications showcasing practical applications of NLP research"
+      "Yolov5 and YOLOv8 for object detection in various domains.",
+      "Implemented YOLOv5 for object counting and tracking.",
+      "Tuberculosis Chest X Ray Classification using EfficientNET-B0"
     ],
     technologies: ["PyTorch", "BERT", "Transformers", "Jupyter", "NLP", "Python"]
   }
@@ -57,10 +74,12 @@ const ExperienceSection = () => {
             Work Experience
           </h2>
 
-          <Button variant="outline" size="sm" className="font-mono flex gap-2">
-            <Download size={16} /> 
-            Download CV
-          </Button>
+          <a href="cv.pdf" download="Saim_Khalid_CV.pdf">
+            <Button variant="outline" size="sm" className="font-mono flex gap-2">
+              <Download size={16} />
+              Download CV
+            </Button>
+          </a>
         </div>
 
         <div className="relative">
