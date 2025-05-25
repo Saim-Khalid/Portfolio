@@ -9,7 +9,6 @@ const CertificationsSection = () => {
       title: "Generative AI with Large Language Models",
       issuer: "AWS, Coursera, DeepLearning.AI",
       date: "2024",
-      credentialId: "TF-DEV-2022-004",
       description: "Gained hands-on experience in generative AI through AWS-led training focused on research and real-world applications.",
       verifyUrl: "https://www.coursera.org/account/accomplishments/verify/P52CZRTBTAV3?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
     },
@@ -17,7 +16,6 @@ const CertificationsSection = () => {
       title: "Introduction to on-device AI",
       issuer: "DeepLearning.AI",
       date: "2024",
-      credentialId: "GCP-PCA-2023-002",
       description: "Deployed AI models on Edge devices and smartphones. Learned model coversion, quantization, and how to modify for deployment on diverse devices.",
       verifyUrl: "https://learn.deeplearning.ai/accomplishments/bcaa8cae-ab1e-445b-92e8-ac7c5666e212?usp=sharing"
     },
@@ -25,7 +23,6 @@ const CertificationsSection = () => {
       title: "Machine Learning Operations (MLOps): Getting Started",
       issuer: "Google Cloud, Coursera",
       date: "2023",
-      credentialId: "CKA-2022-003",
       description: "Acquired skills in implementing effective MLOps using core technologies, CI/CD practices, and Google Cloud for reliable training and inference workflows.",
       verifyUrl: "https://www.coursera.org/account/accomplishments/verify/JG337LUP7SAB?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
     },
@@ -33,7 +30,6 @@ const CertificationsSection = () => {
       title: "Python for Data Science, AI & Development",
       issuer: "IBM, Coursera",
       date: "2021",
-      credentialId: "TF-DEV-2022-004",
       description: "Mastered Python for data science, using core concepts, APIs, and libraries like Pandas, NumPy, and Beautiful Soup.",
       verifyUrl: "https://www.coursera.org/account/accomplishments/verify/SZLXVR8YHB4R?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
     }
@@ -70,17 +66,9 @@ const CertificationsSection = () => {
               <CardContent className="project-card-body">
                 <p className="text-muted-foreground mb-4">{cert.description}</p>
                 
-                <div className="space-y-2 text-sm">
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-muted-foreground" />
-                    <span>Issued: {cert.date}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-muted-foreground">ID:</span>
-                    <code className="bg-muted px-2 py-1 rounded text-xs font-mono">
-                      {cert.credentialId}
-                    </code>
-                  </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <Calendar className="w-4 h-4 text-muted-foreground" />
+                  <span>Issued: {cert.date}</span>
                 </div>
               </CardContent>
               
