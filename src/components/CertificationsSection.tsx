@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Award, Calendar, ExternalLink } from 'lucide-react';
@@ -36,7 +35,7 @@ const CertificationsSection = () => {
   ];
 
   return (
-    <section id="certifications" className="py-20 px-4 lg:px-8 bg-muted/30">
+    <section id="certifications" className="py-20 px-4 lg:px-8">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="section-heading">
