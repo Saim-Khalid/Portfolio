@@ -1,10 +1,11 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send, Bot, Mic, MicOff, Volume2, VolumeX } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/components/ui/use-toast';
 
 interface Message {
   id: string;
@@ -80,6 +81,7 @@ const Chatbot = () => {
   const [isVoiceEnabled, setIsVoiceEnabled] = useState(true);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const recognitionRef = useRef<SpeechRecognition | null>(null);
+  const { toast } = useToast();
 
   const scrollToBottom = () => {
     if (scrollAreaRef.current) {
@@ -153,34 +155,34 @@ const Chatbot = () => {
     }
   };
 
-  const generateResponse = (userMessage: string): string => {
-    const lowerMessage = userMessage.toLowerCase();
-    
-    if (lowerMessage.includes('experience') || lowerMessage.includes('work')) {
-      return "I have over 8 years of experience in AI/ML engineering, working with companies like TechCorp and DataFlow Inc. I specialize in machine learning, deep learning, and building scalable AI systems.";
+  const generateResponse = async (userMessage: string): Promise<string> => {
+    try {
+      console.log('Sending message to AI:', userMessage);
+      
+      const { data, error } = await supabase.functions.invoke('ai-chat', {
+        body: { message: userMessage }
+      });
+
+      if (error) {
+        console.error('Supabase function error:', error);
+        throw error;
+      }
+
+      if (data?.error) {
+        console.error('AI chat error:', data.error);
+        throw new Error(data.error);
+      }
+
+      return data.response || "I'm sorry, I couldn't generate a response right now. Please try again.";
+    } catch (error) {
+      console.error('Error calling AI chat function:', error);
+      toast({
+        title: "Error",
+        description: "Failed to get AI response. Please try again.",
+        variant: "destructive",
+      });
+      return "I'm sorry, I'm having trouble connecting right now. Please try again in a moment.";
     }
-    
-    if (lowerMessage.includes('skills') || lowerMessage.includes('technology')) {
-      return "My core skills include Python, TensorFlow, PyTorch, React, Node.js, AWS, Docker, and Kubernetes. I'm particularly strong in machine learning algorithms, neural networks, and cloud architecture.";
-    }
-    
-    if (lowerMessage.includes('project')) {
-      return "I've worked on various exciting projects including an AI-Powered Analytics Platform, Smart City Traffic Optimization system, and Real-time Fraud Detection engine. Each project involved cutting-edge AI technologies and delivered significant business value.";
-    }
-    
-    if (lowerMessage.includes('education') || lowerMessage.includes('degree')) {
-      return "I hold a Ph.D. in Computer Science from Stanford University, where I specialized in Machine Learning and Artificial Intelligence. I also have several professional certifications from AWS, Google Cloud, and other leading tech companies.";
-    }
-    
-    if (lowerMessage.includes('contact') || lowerMessage.includes('hire') || lowerMessage.includes('work together')) {
-      return "I'd love to discuss potential opportunities! You can reach me at saim.khalid.ai@email.com or connect with me on LinkedIn. I'm always open to interesting AI/ML projects and collaborations.";
-    }
-    
-    if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
-      return "Hello! Great to meet you. I'm here to help you learn more about Saim's background and expertise in AI/ML. What specific area would you like to know about?";
-    }
-    
-    return "That's an interesting question! I'd be happy to discuss Saim's background in AI/ML engineering, his projects, skills, or experience. What specific aspect would you like to know more about?";
   };
 
   const handleSendMessage = async () => {
@@ -194,11 +196,13 @@ const Chatbot = () => {
     };
 
     setMessages(prev => [...prev, userMessage]);
+    const currentMessage = inputValue;
     setInputValue('');
     setIsTyping(true);
 
-    setTimeout(() => {
-      const responseText = generateResponse(inputValue);
+    try {
+      const responseText = await generateResponse(currentMessage);
+      
       const botResponse: Message = {
         id: (Date.now() + 1).toString(),
         text: responseText,
@@ -210,7 +214,10 @@ const Chatbot = () => {
       setIsTyping(false);
       
       speakText(responseText);
-    }, 1500);
+    } catch (error) {
+      console.error('Error generating response:', error);
+      setIsTyping(false);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
