@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send, Bot, Mic, MicOff, Volume2, VolumeX } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -235,7 +236,7 @@ const Chatbot = () => {
       {/* Chat Interface - Responsive sizing */}
       {isOpen && (
         <Card className="fixed bottom-6 right-6 w-80 sm:w-80 md:w-96 h-96 shadow-xl z-50 flex flex-col max-w-[calc(100vw-3rem)]">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 flex-shrink-0">
             <CardTitle className="text-lg flex items-center gap-2">
               <Bot className="h-5 w-5 text-primary" />
               AI Assistant
@@ -261,7 +262,7 @@ const Chatbot = () => {
             </div>
           </CardHeader>
           
-          <CardContent className="flex-1 flex flex-col p-0">
+          <CardContent className="flex-1 flex flex-col p-0 min-h-0">
             {/* Messages Area with proper scrolling */}
             <ScrollArea ref={scrollAreaRef} className="flex-1 px-4">
               <div className="space-y-4 py-4">
@@ -297,7 +298,7 @@ const Chatbot = () => {
             </ScrollArea>
 
             {/* Input Area */}
-            <div className="border-t p-4">
+            <div className="border-t p-4 flex-shrink-0">
               <div className="flex space-x-2">
                 <Input
                   value={inputValue}
