@@ -52,7 +52,7 @@ const CertificationsSection = () => {
           {certifications.map((cert, index) => (
             <Card key={index} className="project-card group hover:shadow-lg transition-all duration-300">
               <CardHeader className="project-card-header">
-                <CardTitle className="text-lg mb-1">{cert.title}</CardTitle>
+                <CardTitle className="text-lg leading-tight break-words hyphens-auto text-left mb-1">{cert.title}</CardTitle>
                 <CardDescription className="text-primary font-medium">
                   {cert.issuer}
                 </CardDescription>
