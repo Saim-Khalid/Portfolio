@@ -34,27 +34,22 @@ const PublicationsSection = () => {
           {publications.map((pub, index) => (
             <Card key={index} className="project-card group hover:shadow-lg transition-all duration-300">
               <CardHeader className="project-card-header">
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <CardTitle className="text-lg mb-2">{pub.title}</CardTitle>
-                    <CardDescription className="text-primary font-medium mb-1">
-                      {pub.journal}
-                    </CardDescription>
-                    <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                      <span className="bg-secondary px-2 py-1 rounded-full text-xs">
-                        {pub.type}
-                      </span>
-                      <div className="flex items-center gap-1">
-                        <Calendar className="w-3 h-3" />
-                        {pub.date}
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Users className="w-3 h-3" />
-                        {pub.citations} citations
-                      </div>
-                    </div>
+                <CardTitle className="text-lg mb-2">{pub.title}</CardTitle>
+                <CardDescription className="text-primary font-medium mb-1">
+                  {pub.journal}
+                </CardDescription>
+                <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                  <span className="bg-secondary px-2 py-1 rounded-full text-xs">
+                    {pub.type}
+                  </span>
+                  <div className="flex items-center gap-1">
+                    <Calendar className="w-3 h-3" />
+                    {pub.date}
                   </div>
-                  <BookOpen className="w-5 h-5 text-primary flex-shrink-0 ml-4" />
+                  <div className="flex items-center gap-1">
+                    <Users className="w-3 h-3" />
+                    {pub.citations} citations
+                  </div>
                 </div>
               </CardHeader>
               
