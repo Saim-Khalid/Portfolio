@@ -34,7 +34,7 @@ const PublicationsSection = () => {
           {publications.map((pub, index) => (
             <Card key={index} className="project-card group hover:shadow-lg transition-all duration-300">
               <CardHeader className="project-card-header">
-                <CardTitle className="text-lg mb-2">{pub.title}</CardTitle>
+                <CardTitle className="text-lg leading-tight break-words hyphens-auto text-left mb-2">{pub.title}</CardTitle>
                 <CardDescription className="text-primary font-medium mb-1">
                   {pub.journal}
                 </CardDescription>
