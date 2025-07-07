@@ -38,12 +38,12 @@ const CertificationsSection = () => {
   return (
     <section id="certifications" className="py-20 px-4 lg:px-8">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-12">
-          <h2 className="section-heading">
+        <div className="text-left mb-12">
+          <h2 className="section-heading text-left">
             <Award className="w-6 h-6 text-primary" />
             Certifications
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl text-left">
             Professional certifications and credentials that validate my expertise in various technologies and platforms.
           </p>
         </div>
@@ -53,13 +53,13 @@ const CertificationsSection = () => {
             <Card key={index} className="project-card group hover:shadow-lg transition-all duration-300">
               <CardHeader className="project-card-header">
                 <CardTitle className="text-lg leading-tight break-words hyphens-auto text-left mb-1">{cert.title}</CardTitle>
-                <CardDescription className="text-primary font-medium">
+                <CardDescription className="text-primary font-medium text-left">
                   {cert.issuer}
                 </CardDescription>
               </CardHeader>
               
               <CardContent className="project-card-body">
-                <p className="text-muted-foreground mb-4">{cert.description}</p>
+                <p className="text-muted-foreground mb-4 text-left">{cert.description}</p>
                 
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Calendar className="w-4 h-4" />
