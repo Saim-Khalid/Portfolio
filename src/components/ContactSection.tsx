@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Mail, Github, Linkedin, Calendar } from 'lucide-react';
+import { Mail, Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -63,21 +63,6 @@ const ContactSection = () => {
                 <div>
                   <p className="font-medium">LinkedIn</p>
                   <p className="text-muted-foreground">linkedin.com/in/saimkhalid</p>
-                </div>
-              </a>
-
-              <a 
-                href="https://calendly.com/aidevsaim" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 p-4 rounded-lg bg-card border hover:shadow-md transition-shadow"
-              >
-                <div className="bg-primary/10 p-2 rounded-md text-primary">
-                  <Calendar size={20} />
-                </div>
-                <div>
-                  <p className="font-medium">Schedule a Call</p>
-                  <p className="text-muted-foreground">calendly.com/aidevsaim</p>
                 </div>
               </a>
             </div>
