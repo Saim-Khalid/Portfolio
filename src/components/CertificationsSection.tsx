@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Award, Calendar, ExternalLink } from 'lucide-react';
@@ -51,22 +52,17 @@ const CertificationsSection = () => {
           {certifications.map((cert, index) => (
             <Card key={index} className="project-card group hover:shadow-lg transition-all duration-300">
               <CardHeader className="project-card-header">
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <CardTitle className="text-lg mb-1">{cert.title}</CardTitle>
-                    <CardDescription className="text-primary font-medium">
-                      {cert.issuer}
-                    </CardDescription>
-                  </div>
-                  <Award className="w-5 h-5 text-primary flex-shrink-0 ml-2" />
-                </div>
+                <CardTitle className="text-lg mb-1">{cert.title}</CardTitle>
+                <CardDescription className="text-primary font-medium">
+                  {cert.issuer}
+                </CardDescription>
               </CardHeader>
               
               <CardContent className="project-card-body">
                 <p className="text-muted-foreground mb-4">{cert.description}</p>
                 
-                <div className="flex items-center gap-2 text-sm">
-                  <Calendar className="w-4 h-4 text-muted-foreground" />
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Calendar className="w-4 h-4" />
                   <span>Issued: {cert.date}</span>
                 </div>
               </CardContent>
