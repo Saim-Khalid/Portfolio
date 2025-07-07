@@ -20,12 +20,12 @@ const PublicationsSection = () => {
   return (
     <section id="publications" className="py-20 px-4 lg:px-8">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-12">
-          <h2 className="section-heading">
+        <div className="text-left mb-12">
+          <h2 className="section-heading text-left">
             <BookOpen className="w-6 h-6 text-primary" />
             Publications
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl text-left">
             Research papers, articles, and case studies contributing to the software engineering and AI communities.
           </p>
         </div>
@@ -35,7 +35,7 @@ const PublicationsSection = () => {
             <Card key={index} className="project-card group hover:shadow-lg transition-all duration-300">
               <CardHeader className="project-card-header">
                 <CardTitle className="text-lg leading-tight break-words hyphens-auto text-left mb-2">{pub.title}</CardTitle>
-                <CardDescription className="text-primary font-medium mb-1">
+                <CardDescription className="text-primary font-medium mb-1 text-left">
                   {pub.journal}
                 </CardDescription>
                 <div className="flex items-center gap-3 text-sm text-muted-foreground">
@@ -55,13 +55,13 @@ const PublicationsSection = () => {
               
               <CardContent className="project-card-body">
                 <div className="mb-4">
-                  <h4 className="text-sm font-medium text-muted-foreground mb-1">Authors:</h4>
-                  <p className="text-sm">{pub.authors.join(', ')}</p>
+                  <h4 className="text-sm font-medium text-muted-foreground mb-1 text-left">Authors:</h4>
+                  <p className="text-sm text-left">{pub.authors.join(', ')}</p>
                 </div>
                 
                 <div className="mb-4">
-                  <h4 className="text-sm font-medium text-muted-foreground mb-1">Abstract:</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{pub.abstract}</p>
+                  <h4 className="text-sm font-medium text-muted-foreground mb-1 text-left">Abstract:</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed text-left">{pub.abstract}</p>
                 </div>
               </CardContent>
               
