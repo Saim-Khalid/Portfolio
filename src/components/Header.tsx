@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -22,7 +21,7 @@ const Header = () => {
       // Determine active section based on scroll position
       const sections = document.querySelectorAll('section[id]');
       const scrollPosition = window.scrollY + 100; // offset for header height
-      
+      let found = false;
       sections.forEach((section) => {
         const sectionTop = (section as HTMLElement).offsetTop;
         const sectionHeight = (section as HTMLElement).offsetHeight;
@@ -33,8 +32,13 @@ const Header = () => {
           scrollPosition < sectionTop + sectionHeight
         ) {
           setActiveSection(sectionId);
+          found = true;
         }
       });
+      // If at the bottom of the page, force Contact as active
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2) {
+        setActiveSection('contact');
+      }
     };
     
     window.addEventListener('scroll', handleScroll);

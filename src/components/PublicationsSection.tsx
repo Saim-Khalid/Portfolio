@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { BookOpen, Calendar, ExternalLink, Users } from 'lucide-react';
@@ -18,23 +17,18 @@ const PublicationsSection = () => {
   ];
 
   return (
-    <section id="publications" className="py-20 px-4 lg:px-8">
-      <div className="container mx-auto max-w-7xl">
-        <div className="text-left mb-12">
-          <h2 className="section-heading text-left">
-            <BookOpen className="w-6 h-6 text-primary" />
-            Publications
-          </h2>
-          <p className="text-muted-foreground max-w-2xl text-left">
-            Research papers, articles, and case studies contributing to the software engineering and AI communities.
-          </p>
-        </div>
+    <section id="publications" className="py-20">
+      <div className="container mx-auto px-4">
+        <h2 className="section-heading mb-12">
+          <BookOpen size={24} className="text-primary" />
+          Publications
+        </h2>
 
         <div className="space-y-6">
           {publications.map((pub, index) => (
             <Card key={index} className="project-card group hover:shadow-lg transition-all duration-300">
-              <CardHeader className="project-card-header">
-                <CardTitle className="text-lg leading-tight break-words hyphens-auto text-left mb-2">{pub.title}</CardTitle>
+              <CardHeader className="project-card-header p-0 px-4 py-4">
+                <CardTitle className="text-lg leading-tight break-words hyphens-auto mb-2 text-left">{pub.title}</CardTitle>
                 <CardDescription className="text-primary font-medium mb-1 text-left">
                   {pub.journal}
                 </CardDescription>
@@ -53,7 +47,7 @@ const PublicationsSection = () => {
                 </div>
               </CardHeader>
               
-              <CardContent className="project-card-body">
+              <CardContent className="project-card-body p-0 px-4 py-5">
                 <div className="mb-4">
                   <h4 className="text-sm font-medium text-muted-foreground mb-1 text-left">Authors:</h4>
                   <p className="text-sm text-left">{pub.authors.join(', ')}</p>

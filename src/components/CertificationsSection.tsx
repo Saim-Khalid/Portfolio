@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Award, Calendar, ExternalLink } from 'lucide-react';
@@ -36,29 +35,24 @@ const CertificationsSection = () => {
   ];
 
   return (
-    <section id="certifications" className="py-20 px-4 lg:px-8">
-      <div className="container mx-auto max-w-7xl">
-        <div className="text-left mb-12">
-          <h2 className="section-heading text-left">
-            <Award className="w-6 h-6 text-primary" />
-            Certifications
-          </h2>
-          <p className="text-muted-foreground max-w-2xl text-left">
-            Professional certifications and credentials that validate my expertise in various technologies and platforms.
-          </p>
-        </div>
+    <section id="certifications" className="py-20">
+      <div className="container mx-auto px-4">
+        <h2 className="section-heading mb-12">
+          <Award size={24} className="text-primary" />
+          Certifications
+        </h2>
 
         <div className="grid md:grid-cols-2 gap-6">
           {certifications.map((cert, index) => (
             <Card key={index} className="project-card group hover:shadow-lg transition-all duration-300">
-              <CardHeader className="project-card-header">
-                <CardTitle className="text-lg leading-tight break-words hyphens-auto text-left mb-1">{cert.title}</CardTitle>
+              <CardHeader className="project-card-header p-0 px-4 py-4">
+                <CardTitle className="text-lg leading-tight break-words hyphens-auto text-left">{cert.title}</CardTitle>
                 <CardDescription className="text-primary font-medium text-left">
                   {cert.issuer}
                 </CardDescription>
               </CardHeader>
               
-              <CardContent className="project-card-body">
+              <CardContent className="project-card-body p-0 px-4 py-5">
                 <p className="text-muted-foreground mb-4 text-left">{cert.description}</p>
                 
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">

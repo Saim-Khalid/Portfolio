@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Briefcase, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -12,6 +11,17 @@ interface ExperienceItem {
 }
 
 const experiences: ExperienceItem[] = [
+  {
+    title: "AI Engineer",
+    company: "Techtronix Corp",
+    period: "Jun 2025 - Present",
+    description: [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    ],
+    technologies: ["MongoDB", "Mistral", "Vector Search", "AI Agent", "Langraph", "Python", "FastAPI", "Docker", "Vector DB"]
+  },
   {
     title: "AI Engineer",
     company: "Self-Employed (UK Contractor)",
