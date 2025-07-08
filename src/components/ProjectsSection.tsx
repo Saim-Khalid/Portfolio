@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Monitor, Github, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -109,13 +108,15 @@ const ProjectsSection = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <Button 
-            variant="outline" 
-            className="font-mono flex gap-2 items-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
-          >
-            <Github size={18} />
-            View More Projects on GitHub
-          </Button>
+          <a href="https://github.com/Saim-Khalid" target="_blank" rel="noopener noreferrer">
+            <Button 
+              variant="outline" 
+              className="font-mono flex gap-2 items-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
+            >
+              <Github size={18} />
+              View More Projects on GitHub
+            </Button>
+          </a>
         </div>
       </div>
     </section>
