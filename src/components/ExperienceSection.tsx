@@ -16,16 +16,15 @@ const experiences: ExperienceItem[] = [
     company: "Techtronix Corp",
     period: "Jun 2025 - Present",
     description: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      "Built a LangGraph-based chatbot using Mistral LLM to convert natural language queries into MongoDB queries with ChromaDB for semantic retrieval.",
+      "Developed scalable REST APIs for AI-powered data analytics and reporting.",
     ],
     technologies: ["MongoDB", "Mistral", "Vector Search", "AI Agent", "Langraph", "Python", "FastAPI", "Docker", "Vector DB"]
   },
   {
     title: "AI Engineer",
     company: "Self-Employed (UK Contractor)",
-    period: "Sep 2024 - Present",
+    period: "Sep 2024 - May 2025",
     description: [
       "Leading the development of AI solutions for healthcare and IoT sectors.",
       "Developed a handwriting OCR pipeline using Qwen2 VLM, deployed via FastAPI & MLflow, with OpenAI-powered prompt engineering and NER for structured text extraction.",
