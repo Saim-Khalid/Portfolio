@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Code, Brain, Network, PenTool } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -36,19 +35,23 @@ const HeroSection = () => {
             Specializing in <span className="font-semibold">Natural Language Processing</span>, <span className="font-semibold">Generative AI</span>, and <span className="font-semibold">Computer Vision</span>
           </h2>
 
-          <div className="mb-10 font-mono py-2 px-4 bg-code rounded-lg inline-flex items-center text-white text-sm sm:text-base break-words max-w-full">
+          <div className="mb-10 font-mono py-2 px-4 bg-code rounded-lg inline-flex items-baseline text-white text-sm sm:text-base break-words max-w-full">
             <span className="opacity-70 mr-1 flex-shrink-0">&gt;</span> 
             <span className="break-words">Building the future with machine intelligence</span>
-            <span className="inline-block w-2 h-5 bg-primary animate-[blink_1s_step-end_infinite] ml-0.5 flex-shrink-0"></span>
+            <span className="inline-block align-middle ml-1 bg-primary animate-[blink_1s_step-end_infinite]" style={{ width: '0.6em', height: '1em', verticalAlign: 'middle' }}></span>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="font-mono" size="lg">
-              View My Projects
-            </Button>
-            <Button variant="outline" className="font-mono" size="lg">
-              Get in Touch
-            </Button>
+            <a href="https://github.com/Saim-Khalid" target="_blank" rel="noopener noreferrer">
+              <Button className="font-mono" size="lg">
+                View My Projects
+              </Button>
+            </a>
+            <a href="#contact">
+              <Button variant="outline" className="font-mono" size="lg">
+                Get in Touch
+              </Button>
+            </a>
           </div>
 
           <div className="mt-16 animate-bounce">
