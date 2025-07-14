@@ -19,7 +19,7 @@ const AboutSection = () => {
                   {/* Profile image placeholder */}
                   <div className="h-full w-full bg-muted/50 flex items-center justify-center">
                     <img
-                      src="/public/profile.png"
+                      src="/profile.png"
                       alt="Profile"
                       className="h-full w-full object-cover rounded-lg"
                     />                    
