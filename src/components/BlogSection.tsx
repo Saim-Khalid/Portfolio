@@ -1,4 +1,4 @@
-
+/*
 import React from 'react';
 import { BookOpen, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -78,15 +78,20 @@ const BlogSection = () => {
           ))}
         </div>
 
+        {/*
         <div className="mt-12 text-center">
-          <Button variant="outline" className="font-mono flex gap-2 items-center">
-            <BookOpen size={18} />
-            View All Articles
-          </Button>
+          <a href="/blog">
+            <Button variant="outline" className="font-mono flex gap-2 items-center">
+              <BookOpen size={18} />
+              View All Articles
+            </Button>
+          </a>
         </div>
-      </div>
-    </section>
-  );
-};
+        */
+//       </div>
+//     </section>
+//   );
+// };
 
-export default BlogSection;
+// export default BlogSection;
+// */

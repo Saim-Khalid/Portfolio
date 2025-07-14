@@ -70,6 +70,16 @@ const experiences: ExperienceItem[] = [
       "Tuberculosis Chest X Ray Classification using EfficientNET-B0"
     ],
     technologies: ["PyTorch", "BERT", "Transformers", "Jupyter", "NLP", "Python"]
+  },
+  {
+    title: "Junior ML Engineer",
+    company: "BXTrack Solutions",
+    period: "Jul 2021 - Aug 2022",
+    description: [
+      "Developed and deployed a real-time number plate detection system using YOLOv4, achieving 93% accuracy and integrating OCR for text extraction.",
+      "Built NLP pipelines using spaCy and RoBERTa for text classification and entity extraction, and deployed them via REST APIs using Django for scalable application integration."
+    ],
+    technologies: ["YOLOv4", "OCR", "spaCy", "RoBERTa", "Django", "REST API", "Python"]
   }
 ];
 

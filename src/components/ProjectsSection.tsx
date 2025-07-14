@@ -13,35 +13,32 @@ interface Project {
 
 const projects: Project[] = [
   {
-    name: "IntelliChat",
-    description: "An advanced conversational AI system with multi-modal capabilities, using a custom-trained LLM with RAG architecture for enhanced knowledge retrieval.",
-    image: "intellichat-project",
-    techStack: ["PyTorch", "Hugging Face", "LangChain", "FastAPI", "React", "Docker"],
-    githubLink: "https://github.com/username/intellichat",
-    demoLink: "https://intellichat-demo.example.com"
+    name: "Beam Classification Model",
+    description: "Dockerized FastAPI app for classifying beam types using an ONNX model. Supports image upload and returns type, bounding boxes, and confidence scores.",
+    image: "beam.png",
+    techStack: ["ONNX", "FastAPI", "Docker", "Python"],
+    githubLink: "https://github.com/ioptime-official/ai_counting_infiniedge",
   },
   {
-    name: "VisualDetect",
-    description: "Real-time object detection and tracking system optimized for edge devices, with customizable detection models for specific industry applications.",
-    image: "visualdetect-project",
-    techStack: ["TensorFlow", "YOLO", "OpenCV", "Streamlit", "Edge ML", "Raspberry Pi"],
-    githubLink: "https://github.com/username/visualdetect"
+    name: "AI Id Scanner",
+    description: "Extracts and analyzes text from African IDs, passports, and licenses using PaddleOCR, NER, and signature detection.",
+    image: "ner.png",
+    techStack: ["PaddleOCR", "YOLOv5", "Python", "NER", "Text Classification"],
+    githubLink: "https://github.com/Saim-Khalid/ai-id-scanner"
   },
   {
-    name: "MLOps Pipeline",
-    description: "End-to-end MLOps pipeline for automating the training, evaluation, deployment, and monitoring of machine learning models in production.",
-    image: "mlops-pipeline-project",
-    techStack: ["Kubernetes", "Docker", "MLflow", "GitHub Actions", "Prometheus", "Python"],
-    githubLink: "https://github.com/username/mlops-pipeline",
-    demoLink: "https://mlops-docs.example.com"
+    name: "AI Playing Cards",
+    description: "Detects and classifies playing cards in images using a custom YOLOv5 model. Includes scripts for augmentation, BBOX visualization, and dataset preparation.",
+    image: "playimg-cards.png",
+    techStack: ["YOLOv5", "Python", "Albumentations"],
+    githubLink: "https://github.com/ioptime-official/ai-playing-cards"
   },
   {
-    name: "SentimentX",
-    description: "Fine-tuned NLP model for multi-language sentiment analysis with domain-specific adaptations for social media and customer feedback.",
-    image: "sentimentx-project",
-    techStack: ["Hugging Face", "BERT", "Scikit-learn", "Flask", "React", "AWS"],
-    githubLink: "https://github.com/username/sentimentx",
-    demoLink: "https://sentimentx.example.com"
+    name: "AI Ecommerce Query Text Audio",
+    description: "Conversational e-commerce bot integrating LLMs, Lex, Polly, Lambda, and SageMaker for text/voice Q&A with real-time data retrieval.",
+    image: "ecommerce-bot.png",
+    techStack: ["AWS Lex", "Polly", "Lambda", "SageMaker", "Python", "LLM", "Pinecone"],
+    githubLink: "https://github.com/ioptime-official/ai-ecommerce-query-text-audio",
   }
 ];
 
@@ -85,9 +82,11 @@ const ProjectsSection = () => {
               </div>
 
               <div className="h-40 bg-muted/50 group-hover:bg-muted/70 transition-colors flex items-center justify-center overflow-hidden">
-                <span className="font-mono text-muted-foreground text-sm group-hover:scale-105 transition-transform">
-                  {project.image}.png
-                </span>
+                <img
+                  src={`/${project.image}`}
+                  alt={project.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               <div className="project-card-body">
@@ -107,16 +106,29 @@ const ProjectsSection = () => {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <a href="https://github.com/Saim-Khalid" target="_blank" rel="noopener noreferrer">
-            <Button 
-              variant="outline" 
-              className="font-mono flex gap-2 items-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
-            >
-              <Github size={18} />
-              View More Projects on GitHub
-            </Button>
-          </a>
+        {/* Button Row: GitHub left, Download PDF right */}
+        <div className="mt-12 flex justify-between items-center w-full">
+          <div className="">
+            <a href="https://github.com/Saim-Khalid" target="_blank" rel="noopener noreferrer">
+              <Button 
+                variant="outline" 
+                className="font-mono flex gap-2 items-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
+              >
+                <Github size={18} />
+                View More Projects on GitHub
+              </Button>
+            </a>
+          </div>
+          <div className="">
+            <a href="/public/portfolio.pdf" download>
+              <Button
+                variant="outline"
+                className="font-mono flex gap-2 items-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
+              >
+                Download Portfolio
+              </Button>
+            </a>
+          </div>
         </div>
       </div>
     </section>
