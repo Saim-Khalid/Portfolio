@@ -31,7 +31,7 @@ const AboutSection = () => {
           
           <div className="md:col-span-2 space-y-4">
             <p className="text-base">
-              I'm a passionate <span className="font-semibold text-primary">AI Engineer</span> with 2+ years of experience building machine learning systems that solve real-world problems.
+              I'm a passionate <span className="font-semibold text-primary">AI Engineer</span> with 3+ years of experience building machine learning systems that solve real-world problems.
             </p>
             
             <p className="text-base">
