@@ -53,7 +53,7 @@ const CertificationsSection = () => {
               </CardHeader>
               
               <CardContent className="project-card-body p-0 px-4 py-5">
-                <p className="text-muted-foreground mb-4 text-left">{cert.description}</p>
+                <p className="text-muted-foreground mb-4 text-left text-justify">{cert.description}</p>
                 
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Calendar className="w-4 h-4" />

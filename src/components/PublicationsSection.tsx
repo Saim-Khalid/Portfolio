@@ -50,12 +50,12 @@ const PublicationsSection = () => {
               <CardContent className="project-card-body p-0 px-4 py-5">
                 <div className="mb-4">
                   <h4 className="text-sm font-medium text-muted-foreground mb-1 text-left">Authors:</h4>
-                  <p className="text-sm text-left">{pub.authors.join(', ')}</p>
+                  <p className="text-sm text-left text-justify">{pub.authors.join(', ')}</p>
                 </div>
                 
                 <div className="mb-4">
                   <h4 className="text-sm font-medium text-muted-foreground mb-1 text-left">Abstract:</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed text-left">{pub.abstract}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed text-left text-justify">{pub.abstract}</p>
                 </div>
               </CardContent>
               

@@ -127,7 +127,7 @@ const ExperienceSection = () => {
                       {job.description.map((item, i) => (
                         <li key={i} className="flex items-start gap-2">
                           <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                          <span>{item}</span>
+                          <span className="text-justify">{item}</span>
                         </li>
                       ))}
                     </ul>
