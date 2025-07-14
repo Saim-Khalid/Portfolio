@@ -87,7 +87,7 @@ const ExperienceSection = () => {
   return (
     <section id="experience" className="py-20">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center mb-12">
+        <div className="flex flex-col md:flex-row md:justify-between items-start md:items-center mb-12 gap-4">
           <h2 className="section-heading">
             <Briefcase size={24} className="text-primary" />
             Work Experience
