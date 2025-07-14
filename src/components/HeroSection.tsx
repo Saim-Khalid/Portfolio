@@ -37,8 +37,8 @@ const HeroSection = () => {
 
           <div className="mb-10 font-mono py-2 px-4 bg-code rounded-lg inline-flex items-baseline text-white text-sm sm:text-base break-words max-w-full">
             <span className="opacity-70 mr-1 flex-shrink-0">&gt;</span> 
-            <span className="break-words whitespace-nowrap">
-              Building the future with machine intelligence
+            <span className="break-words">
+              Building the future with machine <span className="whitespace-nowrap">intelligence</span>
               <span className="inline-block align-middle bg-primary animate-[blink_1s_step-end_infinite]" style={{ width: '0.6em', height: '1em', verticalAlign: 'middle', marginLeft: '0.1em' }}></span>
             </span>
           </div>
