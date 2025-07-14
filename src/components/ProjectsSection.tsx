@@ -120,7 +120,7 @@ const ProjectsSection = () => {
             </a>
           </div>
           <div className="">
-            <a href="/public/portfolio.pdf" download>
+            <a href="/portfolio.pdf" download="portfolio.pdf">
               <Button
                 variant="outline"
                 className="font-mono flex gap-2 items-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
