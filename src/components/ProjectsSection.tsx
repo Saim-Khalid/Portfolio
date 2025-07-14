@@ -90,7 +90,7 @@ const ProjectsSection = () => {
               </div>
 
               <div className="project-card-body">
-                <p className="text-muted-foreground mb-4 group-hover:text-foreground transition-colors">
+                <p className="text-muted-foreground mb-4 group-hover:text-foreground transition-colors text-justify">
                   {project.description}
                 </p>
               </div>
@@ -107,23 +107,23 @@ const ProjectsSection = () => {
         </div>
 
         {/* Button Row: GitHub left, Download PDF right */}
-        <div className="mt-12 flex justify-between items-center w-full">
-          <div className="">
+        <div className="mt-12 flex flex-col md:flex-row md:justify-between items-center w-full gap-4 md:gap-0">
+          <div className="w-full md:w-auto">
             <a href="https://github.com/Saim-Khalid" target="_blank" rel="noopener noreferrer">
               <Button 
                 variant="outline" 
-                className="font-mono flex gap-2 items-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
+                className="font-mono flex gap-2 items-center justify-center w-full md:w-auto hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
               >
                 <Github size={18} />
                 View More Projects on GitHub
               </Button>
             </a>
           </div>
-          <div className="">
+          <div className="w-full md:w-auto">
             <a href="/portfolio.pdf" download="portfolio.pdf">
               <Button
                 variant="outline"
-                className="font-mono flex gap-2 items-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
+                className="font-mono flex gap-2 items-center justify-center w-full md:w-auto hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
               >
                 Download Portfolio
               </Button>

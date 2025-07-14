@@ -29,7 +29,7 @@ const ContactSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
             <h3 className="text-2xl font-bold mb-4">Let's Connect</h3>
-            <p className="text-muted-foreground mb-8">
+            <p className="text-muted-foreground mb-8 text-justify">
               I'm always open to discussing new projects, opportunities in AI development,
               or potential collaborations. Feel free to reach out using your preferred method below.
             </p>
