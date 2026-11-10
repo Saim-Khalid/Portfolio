@@ -1,6 +1,6 @@
 import React from 'react';
-import { Monitor, Github, ExternalLink } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Github, ExternalLink, ArrowUpRight, FileDown } from 'lucide-react';
+import SectionHeading from './fx/SectionHeading';
 
 interface Project {
   name: string;
@@ -44,91 +44,79 @@ const projects: Project[] = [
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="relative py-24">
       <div className="container mx-auto px-4">
-        <h2 className="section-heading mb-12">
-          <Monitor size={24} className="text-primary" />
-          Featured Projects
-        </h2>
+        <SectionHeading index="04" title="Featured Projects" kicker="projects" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {projects.map((project, index) => (
-            <div 
-              key={index} 
-              className="project-card group transform transition-all duration-300 hover:translate-y-[-4px] hover:shadow-lg"
+            <article
+              key={project.name}
+              className="reveal tech-card group flex flex-col overflow-hidden"
+              style={{ '--d': `${(index % 2) * 100}ms` } as React.CSSProperties}
             >
-              <div className="project-card-header">
-                <h3 className="text-xl font-bold group-hover:text-primary transition-colors">{project.name}</h3>
-                <div className="flex gap-2">
-                  <a 
-                    href={project.githubLink} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <Github size={18} />
-                  </a>
-                  {project.demoLink && (
-                    <a 
-                      href={project.demoLink} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      <ExternalLink size={18} />
-                    </a>
-                  )}
-                </div>
-              </div>
-
-              <div className="h-40 bg-muted/50 group-hover:bg-muted/70 transition-colors flex items-center justify-center overflow-hidden">
+              <div className="relative h-48 overflow-hidden border-b bg-muted">
                 <img
                   src={`/${project.image}`}
                   alt={project.name}
-                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  className="h-full w-full object-cover opacity-80 saturate-[0.6] transition-all duration-700 group-hover:scale-105 group-hover:opacity-100 group-hover:saturate-100"
                 />
+                <div className="scanlines" />
+                <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-card via-card/10 to-transparent" />
+                <span className="absolute left-4 top-4 rounded-md border bg-background/70 px-2 py-1 font-pixel text-[10px] text-primary backdrop-blur">
+                  PRJ_{String(index + 1).padStart(2, '0')}
+                </span>
               </div>
 
-              <div className="project-card-body">
-                <p className="text-muted-foreground mb-4 group-hover:text-foreground transition-colors text-justify">
-                  {project.description}
-                </p>
-              </div>
+              <div className="flex flex-1 flex-col p-6">
+                <div className="mb-3 flex items-start justify-between gap-4">
+                  <h3 className="text-xl font-bold transition-colors group-hover:text-primary">{project.name}</h3>
+                  <div className="flex gap-1">
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${project.name} on GitHub`}
+                      className="grid h-8 w-8 place-items-center rounded-md border text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary"
+                    >
+                      <Github size={15} />
+                    </a>
+                    {project.demoLink && (
+                      <a
+                        href={project.demoLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${project.name} live demo`}
+                        className="grid h-8 w-8 place-items-center rounded-md border text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary"
+                      >
+                        <ExternalLink size={15} />
+                      </a>
+                    )}
+                  </div>
+                </div>
 
-              <div className="project-card-footer">
-                {project.techStack.map((tech, i) => (
-                  <span key={i} className="skill-badge transition-colors group-hover:bg-accent/50">
-                    {tech}
-                  </span>
-                ))}
+                <p className="mb-5 flex-1 text-sm leading-relaxed text-muted-foreground text-justify">{project.description}</p>
+
+                <div className="flex flex-wrap gap-2">
+                  {project.techStack.map((tech) => (
+                    <span key={tech} className="chip">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
-        {/* Button Row: GitHub left, Download PDF right */}
-        <div className="mt-12 flex flex-col md:flex-row md:justify-between items-center w-full gap-4 md:gap-0">
-          <div className="w-full md:w-auto">
-            <a href="https://github.com/Saim-Khalid" target="_blank" rel="noopener noreferrer">
-              <Button 
-                variant="outline" 
-                className="font-mono flex gap-2 items-center justify-center w-full md:w-auto hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
-              >
-                <Github size={18} />
-                View More Projects on GitHub
-              </Button>
-            </a>
-          </div>
-          <div className="w-full md:w-auto">
-            <a href="/portfolio.pdf" download="portfolio.pdf">
-              <Button
-                variant="outline"
-                className="font-mono flex gap-2 items-center justify-center w-full md:w-auto hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
-              >
-                Download Portfolio
-              </Button>
-            </a>
-          </div>
+        <div className="reveal mt-12 flex flex-col items-center justify-between gap-4 sm:flex-row">
+          <a href="https://github.com/Saim-Khalid" target="_blank" rel="noopener noreferrer" className="btn-ghost w-full sm:w-auto">
+            <Github size={16} /> More on GitHub <ArrowUpRight size={14} />
+          </a>
+          <a href="/portfolio.pdf" download="portfolio.pdf" className="btn-ghost w-full sm:w-auto">
+            <FileDown size={16} /> Download Portfolio
+          </a>
         </div>
       </div>
     </section>

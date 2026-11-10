@@ -1,72 +1,103 @@
 import React from 'react';
-import { Code, Brain, Network, PenTool } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { ArrowRight, Download } from 'lucide-react';
+import PixelField from './fx/PixelField';
+import ScrambleText from './fx/ScrambleText';
+import Typewriter from './fx/Typewriter';
+
+const phrases = [
+  'building LangGraph agents that automate healthcare revenue cycles',
+  'shipping LLM, RAG and vision systems to production',
+  'deploying low-latency computer vision to the edge',
+];
+
+const stats = [
+  { value: '4+', label: 'years in AI' },
+  { value: '4', label: 'EHR platforms automated' },
+  { value: '54', label: 'paper citations' },
+];
 
 const HeroSection = () => {
   return (
-    <section id="home" className="min-h-screen pt-20 flex items-center mesh-background">
-      <div className="container mx-auto px-4 py-16 relative">
-        {/* Animated Floating Icons - Hidden on mobile */}
-        <div className="hidden md:block absolute left-10 top-1/4 opacity-20 dark:opacity-10">
-          <Code size={48} className="animate-float float-delay-1" />
-        </div>
-        <div className="hidden md:block absolute right-20 top-1/3 opacity-20 dark:opacity-10">
-          <Brain size={64} className="animate-float float-delay-2" />
-        </div>
-        <div className="hidden md:block absolute left-1/4 bottom-1/4 opacity-20 dark:opacity-10">
-          <Network size={56} className="animate-float float-delay-3" />
-        </div>
-        <div className="hidden md:block absolute right-1/4 bottom-1/3 opacity-20 dark:opacity-10">
-          <PenTool size={40} className="animate-float" />
-        </div>
+    <section id="home" className="relative flex min-h-[100svh] items-center overflow-hidden pt-24">
+      <PixelField />
+      {/* Fade the pixel field into the page and add soft colour glows */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(ellipse 60% 55% at 50% 45%, hsl(var(--background) / 0.85) 0%, hsl(var(--background) / 0.4) 55%, transparent 100%), linear-gradient(to bottom, transparent 70%, hsl(var(--background)) 100%)',
+        }}
+      />
+      <div aria-hidden="true" className="aurora -left-24 top-1/4 h-72 w-72 bg-primary" />
+      <div aria-hidden="true" className="aurora -right-24 bottom-1/4 h-80 w-80 bg-lilac" />
 
-        <div className="max-w-3xl mx-auto text-center px-4">
-          <div className="mb-4 inline-block">
-            <span className="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-mono">
-              AI Engineer & ML Specialist
-            </span>
+      <div className="container relative mx-auto px-4 py-16">
+        <div className="mx-auto max-w-4xl text-center">
+          <div className="reveal mb-8 inline-flex items-center gap-2.5 rounded-full border bg-background/60 px-4 py-1.5 font-mono text-xs text-muted-foreground backdrop-blur">
+            <span className="h-2 w-2 bg-primary" style={{ animation: 'pulse-ring 1.6s ease-out infinite' }} />
+            Currently building RCM agents @ <span className="text-foreground">Rinova AI</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Hi, I'm <span className="text-primary">Saim Khalid</span>
+          <p className="reveal mb-4 font-pixel text-xs uppercase tracking-widest text-primary" style={{ '--d': '100ms' } as React.CSSProperties}>
+            AI Engineer · Agentic AI · LLMs · Computer Vision
+          </p>
+
+          <h1
+            className="reveal mb-6 text-5xl font-bold leading-[1.05] sm:text-6xl md:text-7xl lg:text-8xl"
+            style={{ '--d': '200ms' } as React.CSSProperties}
+          >
+            <span className="text-muted-foreground/70">Hi, I'm </span>
+            <br className="sm:hidden" />
+            <ScrambleText text="Saim Khalid" className="text-gradient" duration={1200} delay={300} />
           </h1>
 
-          <h2 className="text-lg sm:text-xl md:text-2xl font-medium mb-8 leading-relaxed">
-            Specializing in <span className="font-semibold">Natural Language Processing</span>, <span className="font-semibold">Generative AI</span>, and <span className="font-semibold">Computer Vision</span>
-          </h2>
-
-          <div className="mb-10 font-mono py-2 px-4 bg-code rounded-lg inline-flex items-baseline text-white text-sm sm:text-base break-words max-w-full">
-            <span className="opacity-70 mr-1 flex-shrink-0">&gt;</span> 
-            <span className="break-words">
-              Building the future with machine <span className="whitespace-nowrap">intelligence</span>
-              <span className="inline-block align-middle bg-primary animate-[blink_1s_step-end_infinite]" style={{ width: '0.6em', height: '1em', verticalAlign: 'middle', marginLeft: '0.1em' }}></span>
-            </span>
+          <div
+            className="reveal mx-auto mb-10 max-w-2xl rounded-xl border bg-card/60 px-5 py-4 text-left font-mono text-sm backdrop-blur sm:text-base"
+            style={{ '--d': '300ms' } as React.CSSProperties}
+          >
+            <div className="mb-2 flex items-center gap-1.5" aria-hidden="true">
+              <span className="h-2.5 w-2.5 rounded-full bg-ember/70" />
+              <span className="h-2.5 w-2.5 rounded-full bg-lilac/70" />
+              <span className="h-2.5 w-2.5 rounded-full bg-primary/70" />
+              <span className="ml-2 text-xs text-muted-foreground">~/saim — zsh</span>
+            </div>
+            <span className="text-primary">❯</span> <span className="text-muted-foreground">currently</span>{' '}
+            <Typewriter phrases={phrases} />
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://github.com/Saim-Khalid" target="_blank" rel="noopener noreferrer">
-              <Button className="font-mono" size="lg">
-                View My Projects
-              </Button>
+          <div className="reveal flex flex-col justify-center gap-3 sm:flex-row" style={{ '--d': '400ms' } as React.CSSProperties}>
+            <a href="#projects" className="btn-glow">
+              View Projects <ArrowRight size={16} />
             </a>
-            <a href="#contact">
-              <Button variant="outline" className="font-mono" size="lg">
-                Get in Touch
-              </Button>
+            <a href="/cv.pdf" download="Saim_Khalid_CV.pdf" className="btn-ghost">
+              <Download size={16} /> Download CV
             </a>
           </div>
 
-          <div className="mt-16 animate-bounce">
-            <a href="#about" className="inline-block">
-              <div className="border-2 border-muted-foreground/30 rounded-full p-2 hover:border-primary transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-down">
-                  <path d="M12 5v14" />
-                  <path d="m19 12-7 7-7-7" />
-                </svg>
+          <dl
+            className="reveal mx-auto mt-14 grid max-w-xl grid-cols-3 divide-x divide-border rounded-xl border bg-background/40 backdrop-blur"
+            style={{ '--d': '500ms' } as React.CSSProperties}
+          >
+            {stats.map((s) => (
+              <div key={s.label} className="px-3 py-4">
+                <dt className="sr-only">{s.label}</dt>
+                <dd className="font-display text-2xl font-bold text-foreground sm:text-3xl">{s.value}</dd>
+                <dd className="mt-1 font-mono text-[11px] text-muted-foreground sm:text-xs">{s.label}</dd>
               </div>
-            </a>
-          </div>
+            ))}
+          </dl>
         </div>
+
+        <a
+          href="#about"
+          aria-label="Scroll to About"
+          className="absolute bottom-0 left-1/2 hidden -translate-x-1/2 translate-y-8 md:block"
+        >
+          <span className="flex h-10 w-6 justify-center rounded-full border-2 border-muted-foreground/40 pt-2">
+            <span className="h-1.5 w-1.5 bg-primary" style={{ animation: 'scroll-dot 1.8s ease-in-out infinite' }} />
+          </span>
+        </a>
       </div>
     </section>
   );

@@ -1,9 +1,30 @@
 import React from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Award, Calendar, ExternalLink } from 'lucide-react';
+import { Award, ExternalLink } from 'lucide-react';
+import SectionHeading from './fx/SectionHeading';
 
 const CertificationsSection = () => {
   const certifications = [
+    {
+      title: "Artificial Intelligence on Microsoft Azure",
+      issuer: "Microsoft, Coursera",
+      date: "2026",
+      description: "Explored Azure AI services for building intelligent applications, covering machine learning, computer vision, natural language processing, and conversational AI on Microsoft Azure.",
+      verifyUrl: "https://www.coursera.org/account/accomplishments/records/TEMT47VOK4PA"
+    },
+    {
+      title: "Fundamentals of MCP",
+      issuer: "Hugging Face",
+      date: "2025",
+      description: "Learned the Model Context Protocol (MCP): building MCP servers and clients that connect LLMs and AI agents to external tools, data sources, and applications.",
+      verifyUrl: "https://huggingface.co/datasets/mcp-course/certificates/resolve/main/certificates/AIdevSaim/2025-07-23.png"
+    },
+    {
+      title: "AI Agents Fundamentals",
+      issuer: "Hugging Face",
+      date: "2025",
+      description: "Covered the foundations of AI agents: LLM reasoning, tool use, the thought-action-observation loop, and building agents with frameworks such as smolagents, LangGraph, and LlamaIndex.",
+      verifyUrl: "https://huggingface.co/datasets/agents-course/certificates/resolve/main/certificates/AIdevSaim/2025-05-04.png"
+    },
     {
       title: "Generative AI with Large Language Models",
       issuer: "AWS, Coursera, DeepLearning.AI",
@@ -35,42 +56,41 @@ const CertificationsSection = () => {
   ];
 
   return (
-    <section id="certifications" className="py-20">
+    <section id="certifications" className="relative py-24">
       <div className="container mx-auto px-4">
-        <h2 className="section-heading mb-12">
-          <Award size={24} className="text-primary" />
-          Certifications
-        </h2>
+        <SectionHeading index="05" title="Certifications" kicker="credentials" />
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid gap-5 md:grid-cols-2">
           {certifications.map((cert, index) => (
-            <Card key={index} className="project-card group hover:shadow-lg transition-all duration-300">
-              <CardHeader className="project-card-header p-0 px-4 py-4">
-                <CardTitle className="text-lg leading-tight break-words hyphens-auto text-left">{cert.title}</CardTitle>
-                <CardDescription className="text-primary font-medium text-left">
-                  {cert.issuer}
-                </CardDescription>
-              </CardHeader>
-              
-              <CardContent className="project-card-body p-0 px-4 py-5">
-                <p className="text-muted-foreground mb-4 text-left text-justify">{cert.description}</p>
-                
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Calendar className="w-4 h-4" />
-                  <span>Issued: {cert.date}</span>
+            <article
+              key={cert.title}
+              className="reveal tech-card flex flex-col p-6"
+              style={{ '--d': `${(index % 2) * 100}ms` } as React.CSSProperties}
+            >
+              <div className="mb-4 flex items-start gap-4">
+                <span className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-lg border border-primary/30 bg-primary/10 text-primary">
+                  <Award size={18} />
+                </span>
+                <div className="min-w-0">
+                  <h3 className="text-lg font-semibold leading-snug">{cert.title}</h3>
+                  <p className="mt-1 font-mono text-xs text-primary">{cert.issuer}</p>
                 </div>
-              </CardContent>
-              
-              <div className="project-card-footer">
-                <a 
+              </div>
+
+              <p className="mb-5 flex-1 text-sm leading-relaxed text-muted-foreground text-justify">{cert.description}</p>
+
+              <div className="flex items-center justify-between border-t pt-4 font-mono text-xs">
+                <span className="text-muted-foreground">issued {cert.date}</span>
+                <a
                   href={cert.verifyUrl}
-                  className="inline-flex items-center gap-1 text-sm text-primary hover:text-primary/80 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-primary transition-opacity hover:opacity-80"
                 >
-                  <ExternalLink className="w-3 h-3" />
-                  Verify Credential
+                  Verify <ExternalLink size={12} />
                 </a>
               </div>
-            </Card>
+            </article>
           ))}
         </div>
       </div>

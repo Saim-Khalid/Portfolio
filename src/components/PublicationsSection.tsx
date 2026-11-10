@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { BookOpen, Calendar, ExternalLink, Users } from 'lucide-react';
+import { BookOpen, ExternalLink } from 'lucide-react';
+import SectionHeading from './fx/SectionHeading';
 
 const PublicationsSection = () => {
   const publications = [
@@ -17,58 +17,37 @@ const PublicationsSection = () => {
   ];
 
   return (
-    <section id="publications" className="py-20">
+    <section id="publications" className="relative py-24">
       <div className="container mx-auto px-4">
-        <h2 className="section-heading mb-12">
-          <BookOpen size={24} className="text-primary" />
-          Publications
-        </h2>
+        <SectionHeading index="06" title="Publications" kicker="research" />
 
         <div className="space-y-6">
-          {publications.map((pub, index) => (
-            <Card key={index} className="project-card group hover:shadow-lg transition-all duration-300">
-              <CardHeader className="project-card-header p-0 px-4 py-4">
-                <CardTitle className="text-lg leading-tight break-words hyphens-auto mb-2 text-left">{pub.title}</CardTitle>
-                <CardDescription className="text-primary font-medium mb-1 text-left">
-                  {pub.journal}
-                </CardDescription>
-                <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                  <span className="bg-secondary px-2 py-1 rounded-full text-xs">
-                    {pub.type}
-                  </span>
-                  <div className="flex items-center gap-1">
-                    <Calendar className="w-3 h-3" />
-                    {pub.date}
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Users className="w-3 h-3" />
-                    {pub.citations} citations
-                  </div>
+          {publications.map((pub) => (
+            <article key={pub.title} className="reveal tech-card grid gap-6 p-6 md:grid-cols-[1fr_auto] md:p-8">
+              <div>
+                <div className="mb-3 flex flex-wrap items-center gap-2 font-mono text-xs">
+                  <span className="rounded-md border border-primary/30 bg-primary/10 px-2 py-0.5 text-primary">{pub.type}</span>
+                  <span className="text-muted-foreground">{pub.journal}</span>
+                  <span className="text-muted-foreground">· {pub.date}</span>
                 </div>
-              </CardHeader>
-              
-              <CardContent className="project-card-body p-0 px-4 py-5">
-                <div className="mb-4">
-                  <h4 className="text-sm font-medium text-muted-foreground mb-1 text-left">Authors:</h4>
-                  <p className="text-sm text-left text-justify">{pub.authors.join(', ')}</p>
-                </div>
-                
-                <div className="mb-4">
-                  <h4 className="text-sm font-medium text-muted-foreground mb-1 text-left">Abstract:</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed text-left text-justify">{pub.abstract}</p>
-                </div>
-              </CardContent>
-              
-              <div className="project-card-footer">
-                <a 
+                <h3 className="mb-3 text-xl font-bold leading-snug md:text-2xl">{pub.title}</h3>
+                <p className="mb-4 font-mono text-xs text-muted-foreground">{pub.authors.join(', ')}</p>
+                <p className="mb-6 text-sm leading-relaxed text-muted-foreground text-justify">{pub.abstract}</p>
+                <a
                   href={pub.url}
-                  className="inline-flex items-center gap-1 text-sm text-primary hover:text-primary/80 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-ghost"
                 >
-                  <ExternalLink className="w-3 h-3" />
-                  Read Publication
+                  <BookOpen size={16} /> Read Publication <ExternalLink size={13} />
                 </a>
               </div>
-            </Card>
+
+              <div className="flex flex-row items-center gap-4 md:flex-col md:justify-center md:border-l md:pl-8">
+                <span className="font-display text-5xl font-bold text-gradient md:text-6xl">{pub.citations}</span>
+                <span className="font-pixel text-[10px] uppercase text-muted-foreground">citations</span>
+              </div>
+            </article>
           ))}
         </div>
       </div>

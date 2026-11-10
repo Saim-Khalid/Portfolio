@@ -22,6 +22,8 @@ export default {
 			fontFamily: {
 				mono: ['JetBrains Mono', 'monospace'],
 				sans: ['Inter', 'sans-serif'],
+				display: ['Space Grotesk', 'Inter', 'sans-serif'],
+				pixel: ['Silkscreen', 'JetBrains Mono', 'monospace'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -67,6 +69,8 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
+				lilac: 'hsl(var(--lilac))',
+				ember: 'hsl(var(--ember))',
 				code: {
 					DEFAULT: '#1E1E3F',
 					glow: '#4D21FC'

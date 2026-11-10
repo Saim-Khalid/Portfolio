@@ -1,172 +1,164 @@
 import { useState, useEffect } from 'react';
 import { Moon, Sun, Menu, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+
+const navLinks = [
+  { name: 'About', id: 'about' },
+  { name: 'Experience', id: 'experience' },
+  { name: 'Skills', id: 'skills' },
+  { name: 'Projects', id: 'projects' },
+  { name: 'Certifications', id: 'certifications' },
+  { name: 'Publications', id: 'publications' },
+  { name: 'Contact', id: 'contact' },
+];
 
 const Header = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
-    // Initialize theme based on system preference
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    setDarkMode(prefersDark);
-    document.documentElement.classList.toggle('dark', prefersDark);
-    
-    // Track scroll for header styling
+    // Theme class is applied before first paint by the script in index.html
+    setDarkMode(document.documentElement.classList.contains('dark'));
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
-      
-      // Determine active section based on scroll position
-      const sections = document.querySelectorAll('section[id]');
-      const scrollPosition = window.scrollY + 100; // offset for header height
-      let found = false;
-      sections.forEach((section) => {
-        const sectionTop = (section as HTMLElement).offsetTop;
-        const sectionHeight = (section as HTMLElement).offsetHeight;
-        const sectionId = section.getAttribute('id') || '';
-        
-        if (
-          scrollPosition >= sectionTop &&
-          scrollPosition < sectionTop + sectionHeight
-        ) {
-          setActiveSection(sectionId);
-          found = true;
+      const probe = window.scrollY + 120;
+      let current = '';
+      document.querySelectorAll<HTMLElement>('section[id]').forEach((section) => {
+        if (probe >= section.offsetTop && probe < section.offsetTop + section.offsetHeight) {
+          current = section.id;
         }
       });
-      // If at the bottom of the page, force Contact as active
-      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2) {
-        setActiveSection('contact');
-      }
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) current = 'contact';
+      setActiveSection(current);
     };
-    
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Call once on mount to set initial state
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    document.documentElement.classList.toggle('dark');
-  };
-
-  const navLinks = [
-    { name: "About", href: "#about" },
-    { name: "Experience", href: "#experience" },
-    { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
-    { name: "Certifications", href: "#certifications" },
-    { name: "Publications", href: "#publications" },
-    { name: "Contact", href: "#contact" },
-  ];
-
-  const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      const yOffset = -70; // header height offset
-      const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-      setMobileMenuOpen(false);
+    const next = !darkMode;
+    setDarkMode(next);
+    document.documentElement.classList.toggle('dark', next);
+    try {
+      localStorage.setItem('theme', next ? 'dark' : 'light');
+    } catch {
+      /* storage unavailable: theme just won't persist */
     }
   };
 
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (!section) return;
+    const y = section.getBoundingClientRect().top + window.scrollY - 80;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+    setMobileMenuOpen(false);
+  };
+
+  const ThemeButton = (
+    <button
+      onClick={toggleDarkMode}
+      className="grid h-9 w-9 place-items-center rounded-lg border bg-background/50 text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary"
+      aria-label={darkMode ? 'Switch to light theme' : 'Switch to dark theme'}
+    >
+      {darkMode ? <Sun size={16} /> : <Moon size={16} />}
+    </button>
+  );
+
   return (
-    <header 
-      className={`fixed z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'left-1/2 -translate-x-1/2 top-4 max-w-5xl w-[95%] bg-background/80 backdrop-blur-xl py-3 rounded-full shadow-lg border border-border/40' 
-          : 'top-0 left-0 w-full px-4 lg:px-8 py-4 bg-background/40 backdrop-blur-md'
+    <header
+      className={`fixed left-1/2 z-50 w-[95%] max-w-6xl -translate-x-1/2 rounded-2xl border transition-all duration-500 ${
+        scrolled || mobileMenuOpen
+          ? 'top-3 border-border/70 bg-background/70 shadow-[0_10px_40px_-20px_hsl(var(--primary)/0.35)] backdrop-blur-xl'
+          : 'top-5 border-transparent bg-transparent'
       }`}
     >
-      <div className={`${scrolled ? 'px-8' : 'max-w-7xl mx-auto'} flex items-center justify-between`}>
-        {!scrolled && (
-          <a href="#" className="font-mono text-lg font-bold">
-            <span className="text-primary">ai</span>Engineer<span className="text-primary">.</span>
-          </a>
-        )}
+      <div className="flex items-center justify-between px-4 py-2.5 md:px-5">
+        <a
+          href="#home"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          className="group flex items-center gap-2"
+        >
+          <span className="grid h-8 w-8 grid-cols-3 gap-[2px] rounded-md border border-primary/40 p-1.5" aria-hidden="true">
+            {[1, 0, 1, 0, 1, 0, 1, 0, 1].map((on, i) => (
+              <span
+                key={i}
+                className={`transition-colors duration-300 ${on ? 'bg-primary' : 'bg-primary/20 group-hover:bg-lilac'}`}
+              />
+            ))}
+          </span>
+          <span className="font-pixel text-sm">
+            saim<span className="text-primary">.ai</span>
+          </span>
+        </a>
 
-        {/* Desktop Navigation */}
-        <nav className={`hidden md:flex items-center ${scrolled ? 'justify-center w-full space-x-6' : 'space-x-6'}`}>
-          {navLinks.map((link) => (
-            <a 
-              key={link.name} 
-              href={link.href}
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection(link.href.substring(1));
-              }}
-              className={`font-mono text-sm transition-all duration-200 rounded-full whitespace-nowrap ${
-                activeSection === link.href.substring(1) 
-                  ? 'text-primary font-semibold bg-primary/10 backdrop-blur-sm px-4 py-2 shadow-sm' 
-                  : 'hover:bg-background/60 hover:backdrop-blur-sm hover:text-primary/80 px-3 py-2'
-              }`}
-            >
-              {link.name}
-            </a>
-          ))}
-          
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            onClick={toggleDarkMode}
-            className="ml-3 rounded-full"
-          >
-            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-            <span className="sr-only">Toggle theme</span>
-          </Button>
-        </nav>
-
-        {/* Mobile Menu Button */}
-        <div className={`flex items-center md:hidden ${scrolled ? 'w-full justify-between' : ''}`}>
-          {scrolled && (
-            <a href="#" className="font-mono text-lg font-bold">
-              <span className="text-primary">ai</span>E<span className="text-primary">.</span>
-            </a>
-          )}
-          <div className="flex items-center">
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              onClick={toggleDarkMode}
-              className="mr-1 rounded-full"
-            >
-              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-            </Button>
-            <Button 
-              variant="ghost" 
-              size="icon"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="rounded-full"
-            >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </Button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Navigation */}
-      {mobileMenuOpen && (
-        <nav className="md:hidden bg-background/90 backdrop-blur-xl absolute top-full left-0 w-full border-t border-border/30 animate-fade-in rounded-b-lg shadow-md mt-2">
-          <div className="px-4 py-3 space-y-1">
-            {navLinks.map((link) => (
-              <a 
-                key={link.name} 
-                href={link.href}
+        {/* Desktop navigation */}
+        <nav className="hidden items-center gap-1 lg:flex">
+          {navLinks.map((link) => {
+            const active = activeSection === link.id;
+            return (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  scrollToSection(link.href.substring(1));
+                  scrollToSection(link.id);
                 }}
-                className={`block font-mono text-base py-3 px-4 rounded-full transition-colors ${
-                  activeSection === link.href.substring(1) 
-                    ? 'bg-primary/10 text-primary font-semibold' 
-                    : 'hover:bg-muted'
+                className={`relative px-3 py-2 font-mono text-[13px] transition-colors ${
+                  active ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
                 {link.name}
+                <span
+                  className={`absolute bottom-0.5 left-1/2 h-1 w-1 -translate-x-1/2 bg-primary shadow-[0_0_8px_hsl(var(--primary))] transition-all duration-300 ${
+                    active ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
+                  }`}
+                />
               </a>
-            ))}
-          </div>
+            );
+          })}
+          <span className="mx-2 h-5 w-px bg-border" />
+          {ThemeButton}
+        </nav>
+
+        {/* Mobile controls */}
+        <div className="flex items-center gap-2 lg:hidden">
+          {ThemeButton}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="grid h-9 w-9 place-items-center rounded-lg border bg-background/50"
+            aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </div>
+      </div>
+
+      {mobileMenuOpen && (
+        <nav className="animate-in fade-in slide-in-from-top-2 border-t px-3 pb-3 pt-2 lg:hidden">
+          {navLinks.map((link, i) => (
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(link.id);
+              }}
+              className={`flex items-center gap-3 rounded-lg px-3 py-2.5 font-mono text-sm transition-colors ${
+                activeSection === link.id ? 'bg-primary/10 text-primary' : 'hover:bg-muted'
+              }`}
+            >
+              <span className="font-pixel text-[10px] text-muted-foreground">0{i + 1}</span>
+              {link.name}
+            </a>
+          ))}
         </nav>
       )}
     </header>

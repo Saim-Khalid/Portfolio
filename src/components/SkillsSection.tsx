@@ -1,120 +1,66 @@
-
 import React from 'react';
-import { Terminal } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import SectionHeading from './fx/SectionHeading';
 
-// Reduced set of most important skills
-const allSkills = [
-  // Languages
-  { name: "Python", level: 90 },
-  { name: "MLOps", level: 80 },
-  { name: "Mlflow", level: 75 },
-  
-  // AI & ML
-  { name: "PyTorch", level: 95 },
-  { name: "TensorFlow", level: 80 },
-  { name: "Hugging Face", level: 90 },
-  { name: "LangChain", level: 85 },
-  { name: "OpenAI", level: 90 },
-  { name: "LLMs", level: 90 },
-  
-  // Data & Cloud
-  { name: "Pandas", level: 95 },
-  { name: "AWS", level: 80 },
-  { name: "Docker", level: 85 },
-  { name: "Kubernetes", level: 75 },
-  { name: "GCP", level: 70 },
-  { name: "CI/CD", level: 80 },
-  { name: "SQL", level: 80 },
-  { name: "Dialogflow", level: 75 },
-  { name: "RASA", level: 90 },
-  
-  // Web & API
-  { name: "FastAPI", level: 90 },
-  { name: "Django", level: 80 },
-  { name: "Streamlit", level: 95 },
-  { name: "Gradio", level: 85 },
-  
-  // Other Tools
-  { name: "OpenCV", level: 80 },
-  { name: "NumPy", level: 95 },
-  { name: "Matplotlib", level: 85 },
-  { name: "Git", level: 90 },
-  { name: "Linux", level: 80 },
-  { name: "CUDA", level: 75 }
-
-
+const skillGroups = [
+  {
+    path: 'genai',
+    title: 'GenAI & Agents',
+    skills: ['LLMs', 'Agentic AI', 'LangGraph', 'LangChain', 'RAG', 'OpenAI', 'Gemini', 'Claude API', 'MCP', 'Prompt Engineering', 'LLMOps'],
+  },
+  {
+    path: 'ml',
+    title: 'Machine Learning',
+    skills: ['Python', 'PyTorch', 'TensorFlow', 'Computer Vision', 'Natural Language Processing', 'Deep Learning', 'Explainable AI', 'CUDA', 'TFLite'],
+  },
+  {
+    path: 'cloud',
+    title: 'Cloud & MLOps',
+    skills: ['AWS', 'SageMaker', 'Lambda', 'Elastic Beanstalk', 'AWS ECS/ECR', 'Azure', 'Docker', 'MLflow', 'CI/CD', 'FastAPI'],
+  },
+  {
+    path: 'automation',
+    title: 'Automation & Data',
+    skills: ['SeleniumBase', 'Playwright', 'RabbitMQ', 'Automation', 'MongoDB', 'Vector Databases', 'Vector Search', 'SQL', 'NoSQL'],
+  },
+  {
+    path: 'domain',
+    title: 'Healthcare & Tooling',
+    skills: ['EHR Integration', 'Healthcare RCM', 'HIPAA Compliance', 'Pytest', 'Cursor', 'Claude Code', 'AI-Assisted Development'],
+  },
 ];
 
 const SkillsSection = () => {
   return (
-    <section id="skills" className="py-20 relative overflow-hidden">
-      {/* Neural network background */}
-      <div className="absolute inset-0 z-0">
-        {/* Neural network nodes */}
-        {Array.from({ length: 8 }).map((_, i) => (
-          <div 
-            key={`node-${i}`}
-            className="absolute rounded-full bg-primary/10"
-            style={{
-              width: `${Math.random() * 12 + 4}px`,
-              height: `${Math.random() * 12 + 4}px`,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
-        
-        {/* Neural network connections */}
-        {Array.from({ length: 10 }).map((_, i) => (
-          <div 
-            key={`connection-${i}`}
-            className="absolute bg-primary/5"
-            style={{
-              height: '1px',
-              width: `${Math.random() * 200 + 100}px`,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              transform: `rotate(${Math.random() * 360}deg)`,
-            }}
-          />
-        ))}
+    <section id="skills" className="relative overflow-hidden py-24">
+      <div aria-hidden="true" className="aurora left-1/3 top-10 h-72 w-72 bg-lilac" />
+      <div className="container relative mx-auto px-4">
+        <SectionHeading index="03" title="Skills & Stack" kicker="skills" />
 
-        {/* Larger nodes at intersections */}
-        {Array.from({ length: 5 }).map((_, i) => (
-          <div 
-            key={`large-node-${i}`}
-            className="absolute rounded-full bg-primary/15"
-            style={{
-              width: `${Math.random() * 20 + 8}px`,
-              height: `${Math.random() * 20 + 8}px`,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
-
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        <h2 className="section-heading mb-12 animate-fade-in">
-          <Terminal size={24} className="text-primary" />
-          Skills & Technologies
-        </h2>
-
-        <div className="flex flex-wrap justify-center gap-2 md:gap-3">
-          {allSkills.map((skill, index) => (
-            <Button
-              key={index}
-              variant="outline"
-              size="sm"
-              className="m-1 transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
-              style={{ animationDelay: `${index * 30}ms` }}
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {skillGroups.map((group, g) => (
+            <div
+              key={group.path}
+              className={`reveal tech-card overflow-hidden ${g === 0 ? 'lg:col-span-2' : ''}`}
+              style={{ '--d': `${g * 80}ms` } as React.CSSProperties}
             >
-              {skill.name}
-            </Button>
+              <div className="flex items-center justify-between border-b bg-secondary/40 px-4 py-2.5 font-mono text-xs">
+                <span className="text-muted-foreground">
+                  <span className="text-primary">~/skills/</span>
+                  {group.path}
+                </span>
+                <span className="font-pixel text-[10px] text-muted-foreground">{String(group.skills.length).padStart(2, '0')}</span>
+              </div>
+              <div className="p-5">
+                <h3 className="mb-4 text-lg font-semibold">{group.title}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {group.skills.map((skill) => (
+                    <span key={skill} className="chip">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
