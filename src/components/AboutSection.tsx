@@ -31,7 +31,7 @@ const AboutSection = () => {
               />
               <div className="relative h-full w-full overflow-hidden rounded-2xl border bg-muted">
                 <img
-                  src="/profile.png"
+                  src="/profile.jpg"
                   alt="Saim Khalid"
                   className="h-full w-full object-cover grayscale-[30%] transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
                 />

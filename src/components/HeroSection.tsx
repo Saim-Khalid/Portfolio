@@ -36,7 +36,7 @@ const HeroSection = () => {
         <div className="mx-auto max-w-4xl text-center">
           <div className="reveal mb-8 inline-flex items-center gap-2.5 rounded-full border bg-background/60 px-4 py-1.5 font-mono text-xs text-muted-foreground backdrop-blur">
             <span className="h-2 w-2 bg-primary" style={{ animation: 'pulse-ring 1.6s ease-out infinite' }} />
-            Currently building RCM agents @ <span className="text-foreground">Rinova AI</span>
+            Currently building RCM agents @ <span className="text-foreground">Edge (Rinova AI)</span>
           </div>
 
           <p className="reveal mb-4 font-pixel text-xs uppercase tracking-widest text-primary" style={{ '--d': '100ms' } as React.CSSProperties}>

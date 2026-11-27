@@ -21,7 +21,7 @@ const ContactSection = () => {
   const channels = [
     { icon: Mail, label: 'Email', value: 'aidevsaim@gmail.com', href: 'mailto:aidevsaim@gmail.com' },
     { icon: Github, label: 'GitHub', value: 'github.com/Saim-Khalid', href: 'https://github.com/Saim-Khalid' },
-    { icon: Linkedin, label: 'LinkedIn', value: 'linkedin.com/in/saimkhalid', href: 'https://www.linkedin.com/in/saim-khalid-aa762a136' },
+    { icon: Linkedin, label: 'LinkedIn', value: 'linkedin.com/in/saim-khalid-ai', href: 'https://www.linkedin.com/in/saim-khalid-ai' },
   ];
 
   const fieldClass =

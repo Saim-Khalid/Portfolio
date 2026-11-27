@@ -5,12 +5,12 @@ const skillGroups = [
   {
     path: 'genai',
     title: 'GenAI & Agents',
-    skills: ['LLMs', 'Agentic AI', 'LangGraph', 'LangChain', 'RAG', 'OpenAI', 'Gemini', 'Claude API', 'MCP', 'Prompt Engineering', 'LLMOps'],
+    skills: ['LLMs', 'Agentic AI', 'LangGraph', 'LangChain', 'RAG', 'OpenAI', 'Gemini', 'Claude API', 'MCP', 'LangSmith', 'Prompt Engineering', 'LLMOps'],
   },
   {
     path: 'ml',
     title: 'Machine Learning',
-    skills: ['Python', 'PyTorch', 'TensorFlow', 'Computer Vision', 'Natural Language Processing', 'Deep Learning', 'Explainable AI', 'CUDA', 'TFLite'],
+    skills: ['Python', 'PyTorch', 'TensorFlow', 'Computer Vision', 'YOLO', 'Natural Language Processing', 'Deep Learning', 'Explainable AI', 'CUDA', 'TFLite'],
   },
   {
     path: 'cloud',

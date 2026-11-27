@@ -13,7 +13,7 @@ interface ExperienceItem {
 const experiences: ExperienceItem[] = [
   {
     title: "AI Engineer",
-    company: "Rinova AI",
+    company: "Edge (Rinova AI)",
     period: "Feb 2026 - Present",
     description: [
       "Build production revenue-cycle management (RCM) agents on a team-built, LangGraph-based framework that automates claim submission, eligibility verification and payment posting across multiple EHRs (eCW, ModMed, AdvancedMD, Practice Fusion), with per-practice JSON-configured workflows driven through SeleniumBase and Playwright.",
@@ -27,28 +27,20 @@ const experiences: ExperienceItem[] = [
   {
     title: "AI Engineer",
     company: "CarBee",
-    period: "Jan 2025 - Jan 2026",
+    period: "Sep 2024 - Present",
     description: [
+      "Full-time Sep 2024 - Jan 2026; continuing part-time since Feb 2026, maintaining and extending the production AI systems below.",
+      "Built AI Bee, an OpenAI + LangGraph automotive lead assistant handling profile capture, test-drive booking and domain-guarded Q&A, contributing to an 80% sales closure rate.",
       "Built a LangGraph-based Text-to-MongoDB agent using OpenAI, vector search, and dynamic few-shot prompting, enabling accurate natural language database querying with domain-specific guardrails.",
       "Deployed the agent as a FastAPI microservice on AWS Elastic Beanstalk, implementing autonomous execution workflows and intelligent query-relaxation fallbacks to improve retrieval reliability.",
       "Architected a production-scale short-video recommendation system using a two-tower retrieval model, achieving 70% recommendation accuracy and enabling low-latency, location-aware retrieval through H3 indexing and MongoDB Atlas Vector Search.",
       "Deployed and maintained real-time recommendation pipelines on AWS (SageMaker, EC2, Fargate, SQS, and S3), supporting live user traffic, automated retraining, and scalable personalization.",
       "Developed a serverless subtitle localization pipeline capable of processing 100 concurrent videos using AWS Batch, Lambda, and EventBridge, translating content into five languages with AssemblyAI and GPT-4o.",
-      "Built a resilient web scraping and ETL framework using Selenium and BeautifulSoup to extract, transform, and store large-scale vehicle data in MongoDB.",
+      "Built a resilient web scraping and ETL framework using Selenium and BeautifulSoup to extract, transform, and store large-scale vehicle data in MongoDB, plus a LangGraph + Selenium pipeline that ingested 38,000+ bike records and images for Bikebook (Australia).",
       "Reduced dataset preparation time by over 90% by using a YOLOv5 model to automatically generate labels for 2,000+ images from an initial 100-image training set.",
       "Implemented a zero-touch, CRON-triggered data anonymization pipeline using YOLO architectures trained on 5,000+ images to detect and blur license plates, deployed as a highly scalable microservice on AWS Lambda."
     ],
     technologies: ["LangGraph", "OpenAI", "MongoDB", "Vector Search", "FastAPI", "AWS", "SageMaker", "Lambda", "YOLO", "Recommender Systems"]
-  },
-  {
-    title: "Freelance AI Engineer",
-    company: "Remote",
-    period: "Sep 2024 - Dec 2024",
-    description: [
-      "Engineered an advanced handwriting OCR pipeline utilizing the Qwen2 Vision-Language Model (VLM), integrating OpenAI for sophisticated prompt engineering and Named Entity Recognition (NER) to extract structured data, deployed via FastAPI with MLflow for robust model tracking.",
-      "Developed a Vision Transformer (ViT) deep learning model for automated Heart X-ray image classification, leveraging transfer learning techniques in PyTorch to achieve 95% diagnostic accuracy."
-    ],
-    technologies: ["Qwen2 VLM", "OpenAI", "NER", "PyTorch", "ViT", "FastAPI", "MLflow"]
   },
   {
     title: "AI Engineer",
