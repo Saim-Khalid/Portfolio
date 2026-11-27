@@ -27,9 +27,8 @@ const experiences: ExperienceItem[] = [
   {
     title: "AI Engineer",
     company: "CarBee",
-    period: "Sep 2024 - Present",
+    period: "Sep 2024 - Jan 2026",
     description: [
-      "Full-time Sep 2024 - Jan 2026; continuing part-time since Feb 2026, maintaining and extending the production AI systems below.",
       "Built AI Bee, an OpenAI + LangGraph automotive lead assistant handling profile capture, test-drive booking and domain-guarded Q&A, contributing to an 80% sales closure rate.",
       "Built a LangGraph-based Text-to-MongoDB agent using OpenAI, vector search, and dynamic few-shot prompting, enabling accurate natural language database querying with domain-specific guardrails.",
       "Deployed the agent as a FastAPI microservice on AWS Elastic Beanstalk, implementing autonomous execution workflows and intelligent query-relaxation fallbacks to improve retrieval reliability.",
